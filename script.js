@@ -90,7 +90,10 @@
     });
   }
 
-  // Testimonial form (Netlify Forms)
+  // Formulário de depoimento: sem backend (GitHub Pages), então em vez de
+  // guardar a resposta em algum servidor, montamos a mensagem e abrimos o
+  // WhatsApp da Apex Web já com ela pronta pra enviar.
+  const APEX_WHATSAPP = '5511944815707';
   const testimonialForm = document.getElementById('testimonial-form');
   if (testimonialForm) {
     testimonialForm.addEventListener('submit', (e) => {
@@ -98,21 +101,27 @@
       const errorEl = document.getElementById('testimonial-error');
       errorEl.hidden = true;
 
-      const data = new FormData(testimonialForm);
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(data).toString()
-      })
-        .then((response) => {
-          if (!response.ok) throw new Error(`Envio falhou (${response.status})`);
-          testimonialForm.hidden = true;
-          document.getElementById('testimonial-success').hidden = false;
-        })
-        .catch(() => {
-          errorEl.textContent = 'Não foi possível enviar agora. Tente novamente ou chame no WhatsApp.';
-          errorEl.hidden = false;
-        });
+      // Honeypot: bot preencheu um campo escondido do usuário -> ignora silenciosamente.
+      if (testimonialForm.elements['bot-field'].value) return;
+
+      const nome = testimonialForm.elements['nome'].value.trim();
+      const empresa = testimonialForm.elements['empresa'].value.trim();
+      const depoimento = testimonialForm.elements['depoimento'].value.trim();
+
+      if (!nome || !depoimento) {
+        errorEl.textContent = 'Preencha seu nome e o depoimento.';
+        errorEl.hidden = false;
+        return;
+      }
+
+      let mensagem = `Olá! Quero deixar um depoimento sobre a Apex Web:\n\nNome: ${nome}`;
+      if (empresa) mensagem += `\nEmpresa: ${empresa}`;
+      mensagem += `\nDepoimento: ${depoimento}`;
+
+      window.open(`https://wa.me/${APEX_WHATSAPP}?text=${encodeURIComponent(mensagem)}`, '_blank', 'noopener');
+
+      testimonialForm.hidden = true;
+      document.getElementById('testimonial-success').hidden = false;
     });
   }
 

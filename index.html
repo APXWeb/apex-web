@@ -302,9 +302,8 @@
         <h3>Deixe seu depoimento</h3>
         <p class="testimonial-form-sub">É cliente da Apex Web? Conte como foi sua experiência — seu depoimento pode aparecer aqui no site.</p>
 
-        <form name="depoimentos" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="testimonial-form">
-          <input type="hidden" name="form-name" value="depoimentos">
-          <p class="bot-field-wrap"><label>Não preencha isto: <input name="bot-field"></label></p>
+        <form id="testimonial-form" novalidate>
+          <p class="bot-field-wrap"><label>Não preencha isto: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
 
           <div class="form-grid-2">
             <div class="form-field">
@@ -324,12 +323,13 @@
 
           <p class="form-error" id="testimonial-error" hidden></p>
 
-          <button type="submit" class="btn btn-primary btn-block">Enviar depoimento</button>
+          <button type="submit" class="btn btn-primary btn-block">Enviar pelo WhatsApp</button>
+          <p class="form-fineprint">Vamos abrir o WhatsApp com sua mensagem pronta — é só apertar enviar.</p>
         </form>
 
         <div class="testimonial-success" id="testimonial-success" hidden>
           <div class="success-icon">✓</div>
-          <p>Obrigado pelo depoimento! Em breve ele pode aparecer aqui no site.</p>
+          <p>Mensagem pronta no WhatsApp! Depois de enviar, seu depoimento pode aparecer aqui no site.</p>
         </div>
       </div>
     </div>
