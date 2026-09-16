@@ -1,25 +1,25 @@
 (() => {
   'use strict';
 
-  const STORAGE_KEY = 'nobre_agendamentos_v1';
-  const CLIENT_KEY = 'nobre_cliente_v1';
+  const STORAGE_KEY = 'imperio_agendamentos_v1';
+  const CLIENT_KEY = 'imperio_cliente_v1';
   const TIME_ZONE = 'America/Sao_Paulo';
   const DAYS_AHEAD = 21;
   const SLOT_MINUTES = 30;
 
   const SERVICES = [
-    { id: 'corte-classico', name: 'Corte Clássico', price: 45 },
-    { id: 'corte-barba', name: 'Corte + Barba', price: 70 },
-    { id: 'barba', name: 'Barba', price: 35 },
-    { id: 'corte-maquina', name: 'Corte à Máquina', price: 30 },
-    { id: 'maquina-barba', name: 'Máquina + Barba', price: 60 },
-    { id: 'corte-infantil', name: 'Corte Infantil', price: 40 },
+    { id: 'corte-classico', name: 'Corte Clássico', price: 50 },
+    { id: 'corte-barba', name: 'Corte + Barba', price: 90 },
+    { id: 'barba', name: 'Barba', price: 45 },
+    { id: 'corte-maquina', name: 'Corte à Máquina', price: 35 },
+    { id: 'maquina-barba', name: 'Máquina + Barba', price: 75 },
+    { id: 'corte-infantil', name: 'Corte Infantil', price: 50 },
     { id: 'sobrancelha', name: 'Sobrancelha', price: 20 },
-    { id: 'pezinho', name: 'Pezinho', price: 15 }
+    { id: 'pezinho', name: 'Pezinho', price: 20 }
   ];
 
-  // Horário fictício: segunda a sexta 9h–19h, sábado 9h–17h, domingo fechado.
-  const HOURS = { 0: null, 1: [540, 1140], 2: [540, 1140], 3: [540, 1140], 4: [540, 1140], 5: [540, 1140], 6: [540, 1020] };
+  // Horário (fictício): segunda 9h–18h, terça a sexta 9h–20h, sábado 8h–18h, domingo fechado.
+  const HOURS = { 0: null, 1: [540, 1080], 2: [540, 1200], 3: [540, 1200], 4: [540, 1200], 5: [540, 1200], 6: [480, 1080] };
 
   const WEEKDAYS = ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado'];
   const WEEKDAYS_SHORT = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
@@ -104,8 +104,8 @@
   }
 
   /* Faixa de aviso ---------------------------------------------------------
-     Mede a altura real da faixa "projeto demonstrativo" (que pode quebrar em
-     duas linhas em telas estreitas) e empurra o cabeçalho fixo pra baixo dela. */
+     Mede a altura real da faixa "projeto demonstrativo" (que quebra em duas
+     linhas em telas estreitas) e empurra o cabeçalho fixo pra baixo dela. */
 
   const proposalNote = $('.proposal-note');
   function syncNoteHeight() {
@@ -367,6 +367,10 @@
     $$('.field.has-error').forEach((f) => f.classList.remove('has-error'));
   }
 
+  // A barbearia é fictícia, então nada é enviado de verdade: os botões de
+  // WhatsApp e o "remarcar" apenas explicam o que aconteceria num site real.
+  const DEMO_MESSAGE = 'Demonstração: em um site real, isso abriria o WhatsApp da barbearia.';
+
   function loadBookings() {
     try {
       const list = JSON.parse(localStorage.getItem(STORAGE_KEY));
@@ -403,7 +407,7 @@
     if (!booking) return;
 
     if (btn.dataset.action === 'reschedule') {
-      showToast('Em um site real, isso abriria uma conversa com a barbearia para remarcar.');
+      showToast(DEMO_MESSAGE);
       return;
     }
 
@@ -452,6 +456,14 @@
     resetBooking();
     renderBookings();
     showToast('Agendamento confirmado! (ambiente de demonstração)');
+  });
+
+  // Botões de contato: mostram o aviso de demonstração em vez de abrir link real.
+  $$('[data-demo]').forEach((el) => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      showToast(DEMO_MESSAGE);
+    });
   });
 
   function resetBooking() {

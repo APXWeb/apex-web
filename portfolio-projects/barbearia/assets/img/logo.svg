@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="220" height="220" role="img" aria-label="Barbearia Império">
+  <defs>
+    <path id="arco-topo" d="M110 110 m-86 0 a86 86 0 0 1 172 0" fill="none"/>
+    <!-- arco de baixo: esquerda para a direita passando por baixo, para o
+         texto ficar legível em vez de aparecer de cabeça para baixo -->
+    <path id="arco-base" d="M110 110 m-96 0 a96 96 0 0 0 192 0" fill="none"/>
+    <radialGradient id="fundo" cx="38%" cy="30%" r="80%">
+      <stop offset="0%" stop-color="#241d12"/>
+      <stop offset="100%" stop-color="#100e09"/>
+    </radialGradient>
+  </defs>
+
+  <circle cx="110" cy="110" r="108" fill="url(#fundo)"/>
+  <circle cx="110" cy="110" r="105" fill="none" stroke="#d9ab45" stroke-width="3"/>
+  <circle cx="110" cy="110" r="70" fill="none" stroke="#d9ab45" stroke-width="1.2" opacity="0.5"/>
+
+  <g fill="#f2c75c" font-family="'Arial Narrow', Arial, Helvetica, sans-serif" font-size="17" font-weight="700" letter-spacing="3">
+    <text><textPath href="#arco-topo" startOffset="50%" text-anchor="middle">BARBEARIA IMPÉRIO</textPath></text>
+    <text><textPath href="#arco-base" startOffset="50%" text-anchor="middle">CORTES &amp; BARBA</textPath></text>
+  </g>
+
+  <!-- coroa -->
+  <path d="M80 92 L86 66 L98 80 L110 58 L122 80 L134 66 L140 92 Z" fill="#f2c75c"/>
+  <rect x="80" y="95" width="60" height="7" rx="2.5" fill="#f2c75c"/>
+
+  <!-- navalha -->
+  <g stroke="#f2c75c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M78 140 L118 118"/>
+    <path d="M118 118 L134 109 L140 119 L124 128 Z" fill="#f2c75c" stroke="none"/>
+  </g>
+
+  <text x="110" y="162" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="14" letter-spacing="4" fill="#f5eddd" opacity="0.85">EST. 2018</text>
+</svg>
