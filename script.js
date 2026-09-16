@@ -92,8 +92,8 @@
 
   // Formulário de depoimento: sem backend (GitHub Pages), então em vez de
   // guardar a resposta em algum servidor, montamos a mensagem e abrimos o
-  // WhatsApp da Apex Web já com ela pronta pra enviar.
-  const APEX_WHATSAPP = '5511944815707';
+  // WhatsApp da APX Web já com ela pronta pra enviar.
+  const APX_WHATSAPP = '5511944815707';
   const testimonialForm = document.getElementById('testimonial-form');
   if (testimonialForm) {
     testimonialForm.addEventListener('submit', (e) => {
@@ -114,11 +114,11 @@
         return;
       }
 
-      let mensagem = `Olá! Quero deixar um depoimento sobre a Apex Web:\n\nNome: ${nome}`;
+      let mensagem = `Olá! Quero deixar um depoimento sobre a APX Web:\n\nNome: ${nome}`;
       if (empresa) mensagem += `\nEmpresa: ${empresa}`;
       mensagem += `\nDepoimento: ${depoimento}`;
 
-      window.open(`https://wa.me/${APEX_WHATSAPP}?text=${encodeURIComponent(mensagem)}`, '_blank', 'noopener');
+      window.open(`https://wa.me/${APX_WHATSAPP}?text=${encodeURIComponent(mensagem)}`, '_blank', 'noopener');
 
       testimonialForm.hidden = true;
       document.getElementById('testimonial-success').hidden = false;
