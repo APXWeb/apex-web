@@ -3,177 +3,453 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Barbearia Nobre — Estilo que fala por você</title>
-<meta name="description" content="Barbearia Nobre: cortes, barba e cuidado masculino com agendamento simples e atendimento de qualidade.">
+<script>document.documentElement.classList.add('js')</script>
+<title>Barbearia Nobre | Estilo, precisão e atitude</title>
+<meta name="description" content="Projeto demonstrativo da Apex Web: site para barbearia com catálogo de serviços, preços, horários e agendamento online funcional.">
+<meta name="theme-color" content="#0b0a08">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Oswald:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+<p class="proposal-note">Projeto demonstrativo do portfólio da Apex Web — barbearia e agendamentos fictícios.</p>
+
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88a9.82 9.82 0 0 1 6.99 2.9 9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.69 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41Z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2.6 2.9 6 6.6.8-4.9 4.6 1.3 6.5L12 17.3l-5.9 3.2 1.3-6.5L2.5 9.4l6.6-.8Z"/></symbol>
+  <symbol id="i-razor" viewBox="0 0 24 24"><path d="M14.5 4.5 19.5 9.5 9 20H4v-5L14.5 4.5Z"/><path d="m12.5 11.5-2-2"/></symbol>
+  <symbol id="i-child" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5a4.2 4.2 0 0 0 7 0M9 9.5h.01M15 9.5h.01"/></symbol>
+  <symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 5 8.5 15M8.5 9 20 19"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3s7 7.4 7 12a7 7 0 0 1-14 0c0-4.6 7-12 7-12Z"/></symbol>
+  <symbol id="i-comb" viewBox="0 0 24 24"><path d="M4 5h16v3H4zM6 8v11M9 8v11M12 8v11M15 8v11M18 8v11"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z"/></symbol>
+</svg>
+
 <header class="site-header">
-  <div class="container nav">
-    <div class="logo">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="6" cy="6" r="3" stroke="currentColor" stroke-width="1.5"/>
-        <circle cx="6" cy="18" r="3" stroke="currentColor" stroke-width="1.5"/>
-        <path d="M20 5L8.5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M8.5 9L20 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>
-      <span>Barbearia <strong>Nobre</strong></span>
+  <div class="container header-inner">
+    <a class="brand" href="#inicio" aria-label="Barbearia Nobre, voltar ao início">
+      <span class="brand-mark" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><use href="#i-scissors"/></svg></span>
+      <span class="brand-text"><strong>Barbearia</strong><span>Nobre</span></span>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#servicos">Serviços</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#agendar">Agendamento</a>
+      <a href="#visite">Localização</a>
+      <a href="#duvidas">Dúvidas</a>
+    </nav>
+    <div class="header-actions">
+      <span class="status-pill" data-status>
+        <span class="status-dot" aria-hidden="true"></span>
+        <span data-status-title>Seg a sáb</span>
+        <span class="status-sep" aria-hidden="true">·</span>
+        <span data-status-detail>confira os horários</span>
+      </span>
+      <a class="btn btn-gold btn-sm btn-book" href="#agendar">Agendar</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menu"><span></span><span></span></button>
     </div>
-    <ul class="nav-links">
-      <li><a href="#servicos">Serviços</a></li>
-      <li><a href="#horarios">Horários</a></li>
-    </ul>
-    <a href="#agendar" class="btn btn-primary">Agendar horário</a>
   </div>
 </header>
 
-<main>
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true" inert>
+  <nav aria-label="Menu">
+    <a href="#servicos">Serviços</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#agendar">Agendamento</a>
+    <a href="#visite">Localização</a>
+    <a href="#duvidas">Dúvidas</a>
+  </nav>
+  <div class="mobile-menu-foot">
+    <a class="btn btn-gold" href="#agendar">Agendar horário</a>
+    <p>Seg a sex 9h–19h · Sáb 9h–17h</p>
+  </div>
+</div>
 
-  <section class="hero">
-    <div class="hero-decor hero-decor-left" aria-hidden="true">
-      <div class="barber-pole">
-        <span class="pole-cap pole-cap-top"></span>
-        <span class="pole-stripes"></span>
-        <span class="pole-cap pole-cap-bottom"></span>
+<main id="conteudo">
+
+  <section class="hero" id="inicio" aria-labelledby="hero-title">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow reveal">Barbearia clássica</span>
+        <h1 id="hero-title" class="reveal" style="--d:.08s">Estilo, precisão <em>e atitude.</em></h1>
+        <p class="lead reveal" style="--d:.16s">Onde cada corte conta uma história. Corte, barba e cuidado masculino com atenção aos detalhes, num ambiente pensado para o seu momento de cuidar de si.</p>
+        <div class="hero-actions reveal" style="--d:.24s">
+          <a class="btn btn-gold" href="#agendar">Agendar horário<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-line" href="#servicos">Serviços e preços</a>
+        </div>
+        <div class="hero-facts reveal" style="--d:.32s">
+          <div class="hero-fact" data-status>
+            <strong><span class="status-dot" aria-hidden="true"></span><span data-status-title>Seg a sáb</span></strong>
+            <span data-status-detail>Confira os horários</span>
+          </div>
+          <div class="hero-fact">
+            <strong>4,9 <svg class="icon icon-fill star" aria-hidden="true"><use href="#i-star"/></svg></strong>
+            <span>Avaliação média</span>
+          </div>
+          <div class="hero-fact">
+            <strong>800+</strong>
+            <span>Clientes atendidos</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal" style="--d:.2s">
+        <span class="hero-frame" aria-hidden="true"></span>
+        <div class="hero-photo">
+          <div class="barber-pole" aria-hidden="true">
+            <span class="pole-cap pole-cap-top"></span>
+            <span class="pole-stripes"></span>
+            <span class="pole-cap pole-cap-bottom"></span>
+          </div>
+        </div>
+        <span class="hero-badge" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><use href="#i-scissors"/></svg></span>
+        <a class="hero-price" href="#servicos">
+          <small>Combo popular</small>
+          <strong>Corte + Barba</strong>
+          <span>R$ 70</span>
+        </a>
       </div>
     </div>
+    <span class="scroll-cue" aria-hidden="true">Role</span>
+  </section>
 
-    <div class="hero-decor hero-decor-right" aria-hidden="true">
-      <div class="float-card" id="next-slot-card">
-        <span class="float-dot"></span>
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <div class="marquee-group">
+        <span class="marquee-item">Corte &amp; Barba</span><span class="marquee-star">✦</span>
+        <span class="marquee-item outline">Navalha</span><span class="marquee-star">✦</span>
+        <span class="marquee-item">Toalha quente</span><span class="marquee-star">✦</span>
+        <span class="marquee-item outline">Corte infantil</span><span class="marquee-star">✦</span>
+        <span class="marquee-item">Agendamento online</span><span class="marquee-star">✦</span>
+        <span class="marquee-item outline">Ambiente clássico</span><span class="marquee-star">✦</span>
+      </div>
+      <div class="marquee-group">
+        <span class="marquee-item">Corte &amp; Barba</span><span class="marquee-star">✦</span>
+        <span class="marquee-item outline">Navalha</span><span class="marquee-star">✦</span>
+        <span class="marquee-item">Toalha quente</span><span class="marquee-star">✦</span>
+        <span class="marquee-item outline">Corte infantil</span><span class="marquee-star">✦</span>
+        <span class="marquee-item">Agendamento online</span><span class="marquee-star">✦</span>
+        <span class="marquee-item outline">Ambiente clássico</span><span class="marquee-star">✦</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="section services" id="servicos" aria-labelledby="servicos-title">
+    <div class="container">
+      <div class="section-head">
         <div>
-          <strong>Próxima vaga livre</strong>
-          <span id="next-slot-value">Carregando…</span>
+          <span class="eyebrow reveal">Tabela de preços</span>
+          <h2 id="servicos-title" class="reveal">Nossos <em>serviços</em></h2>
+          <p class="lead reveal">Escolha o serviço e agende em poucos cliques.</p>
+        </div>
+        <div class="filters reveal" role="group" aria-label="Filtrar serviços">
+          <button type="button" class="filter" data-filter="todos" aria-pressed="true">Todos</button>
+          <button type="button" class="filter" data-filter="cortes" aria-pressed="false">Cortes</button>
+          <button type="button" class="filter" data-filter="barba" aria-pressed="false">Barba</button>
+          <button type="button" class="filter" data-filter="combos" aria-pressed="false">Combos</button>
+          <button type="button" class="filter" data-filter="acabamentos" aria-pressed="false">Acabamentos</button>
         </div>
       </div>
-    </div>
 
-    <div class="container hero-content">
-      <span class="eyebrow">Barbearia clássica</span>
-      <h1>Estilo que fala <span>por você.</span></h1>
-      <p>Corte, barba e cuidado masculino com atenção aos detalhes — em um ambiente pensado para o seu momento de cuidar de si.</p>
-      <div class="hero-actions">
-        <a href="#agendar" class="btn btn-primary">Agendar horário</a>
-        <a href="#servicos" class="btn btn-ghost">Ver serviços</a>
+      <div class="services-grid">
+        <article class="service-card reveal" data-cat="cortes">
+          <div class="service-media"><span class="service-tag">Corte</span><svg class="icon service-icon" aria-hidden="true"><use href="#i-scissors"/></svg></div>
+          <div class="service-body">
+            <h3>Corte Clássico</h3>
+            <p>Tesoura e máquina, com acabamento na navalha.</p>
+            <div class="service-foot">
+              <span class="price"><small>R$</small>45</span>
+              <button type="button" class="service-book" data-book="corte-classico" aria-label="Agendar Corte Clássico">Agendar<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            </div>
+          </div>
+        </article>
+        <article class="service-card reveal" data-cat="combos" style="--d:.06s">
+          <div class="service-media"><span class="service-tag is-gold">Combo</span><svg class="icon service-icon" aria-hidden="true"><use href="#i-star"/></svg></div>
+          <div class="service-body">
+            <h3>Corte + Barba</h3>
+            <p>O pacote completo, com prioridade no agendamento.</p>
+            <div class="service-foot">
+              <span class="price"><small>R$</small>70</span>
+              <button type="button" class="service-book" data-book="corte-barba" aria-label="Agendar Corte + Barba">Agendar<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            </div>
+          </div>
+        </article>
+        <article class="service-card reveal" data-cat="barba" style="--d:.12s">
+          <div class="service-media"><span class="service-tag">Barba</span><svg class="icon service-icon" aria-hidden="true"><use href="#i-razor"/></svg></div>
+          <div class="service-body">
+            <h3>Barba</h3>
+            <p>Toalha quente, navalha e hidratação.</p>
+            <div class="service-foot">
+              <span class="price"><small>R$</small>35</span>
+              <button type="button" class="service-book" data-book="barba" aria-label="Agendar Barba">Agendar<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            </div>
+          </div>
+        </article>
+        <article class="service-card reveal" data-cat="cortes" style="--d:.18s">
+          <div class="service-media"><span class="service-tag">Corte</span><svg class="icon service-icon" aria-hidden="true"><use href="#i-comb"/></svg></div>
+          <div class="service-body">
+            <h3>Corte à Máquina</h3>
+            <p>Corte prático, na máquina do início ao fim.</p>
+            <div class="service-foot">
+              <span class="price"><small>R$</small>30</span>
+              <button type="button" class="service-book" data-book="corte-maquina" aria-label="Agendar Corte à Máquina">Agendar<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            </div>
+          </div>
+        </article>
+        <article class="service-card reveal" data-cat="cortes">
+          <div class="service-media"><span class="service-tag">Corte</span><svg class="icon service-icon" aria-hidden="true"><use href="#i-child"/></svg></div>
+          <div class="service-body">
+            <h3>Corte Infantil</h3>
+            <p>Paciência e cuidado com os pequenos.</p>
+            <div class="service-foot">
+              <span class="price"><small>R$</small>40</span>
+              <button type="button" class="service-book" data-book="corte-infantil" aria-label="Agendar Corte Infantil">Agendar<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            </div>
+          </div>
+        </article>
+        <article class="service-card reveal" data-cat="acabamentos" style="--d:.06s">
+          <div class="service-media"><span class="service-tag">Acabamento</span><svg class="icon service-icon" aria-hidden="true"><use href="#i-drop"/></svg></div>
+          <div class="service-body">
+            <h3>Sobrancelha</h3>
+            <p>Alinhamento na navalha ou pinça.</p>
+            <div class="service-foot">
+              <span class="price"><small>R$</small>20</span>
+              <button type="button" class="service-book" data-book="sobrancelha" aria-label="Agendar Sobrancelha">Agendar<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            </div>
+          </div>
+        </article>
+        <article class="service-card reveal" data-cat="acabamentos" style="--d:.12s">
+          <div class="service-media"><span class="service-tag">Acabamento</span><svg class="icon service-icon" aria-hidden="true"><use href="#i-comb"/></svg></div>
+          <div class="service-body">
+            <h3>Pezinho</h3>
+            <p>Acabamento rápido na nuca.</p>
+            <div class="service-foot">
+              <span class="price"><small>R$</small>15</span>
+              <button type="button" class="service-book" data-book="pezinho" aria-label="Agendar Pezinho">Agendar<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            </div>
+          </div>
+        </article>
+        <article class="service-card reveal" data-cat="combos" style="--d:.18s">
+          <div class="service-media"><span class="service-tag is-gold">Combo</span><svg class="icon service-icon" aria-hidden="true"><use href="#i-drop"/></svg></div>
+          <div class="service-body">
+            <h3>Máquina + Barba</h3>
+            <p>Combo rápido pra quem tem pressa.</p>
+            <div class="service-foot">
+              <span class="price"><small>R$</small>60</span>
+              <button type="button" class="service-book" data-book="maquina-barba" aria-label="Agendar Máquina + Barba">Agendar<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            </div>
+          </div>
+        </article>
+      </div>
+      <p class="services-note reveal">Dá pra escolher mais de um serviço no agendamento. O valor total aparece no resumo.</p>
+    </div>
+  </section>
+
+  <section class="section about" id="sobre" aria-labelledby="sobre-title">
+    <div class="container about-grid">
+      <div class="emblem reveal" aria-hidden="true">
+        <span class="emblem-ring"></span>
+        <span class="emblem-ring r2"></span>
+        <span class="emblem-ring r3"></span>
+        <svg class="emblem-icon" viewBox="0 0 24 24"><use href="#i-scissors"/></svg>
+      </div>
+      <div class="about-copy">
+        <span class="eyebrow reveal">Nossa história</span>
+        <h2 id="sobre-title" class="reveal">Estilo que fala <em>por você</em></h2>
+        <p class="about-lede reveal">Na Barbearia Nobre, cada detalhe importa. Criamos um espaço onde tradição encontra modernidade — um ambiente pensado para quem valoriza estilo e qualidade.</p>
+        <p class="reveal">Nossos barbeiros são especialistas em transformar visual, com técnicas atualizadas e atenção personalizada a cada cliente. Aqui, você não faz apenas um corte — você vive uma experiência.</p>
+        <div class="stats reveal">
+          <div class="stat"><strong data-count="6" data-suffix="+">6+</strong><span>Anos no mercado</span></div>
+          <div class="stat"><strong data-count="800" data-suffix="+">800+</strong><span>Clientes atendidos</span></div>
+          <div class="stat"><strong data-count="4.9" data-decimals="1">4,9</strong><span>Avaliação média</span></div>
+        </div>
+        <div class="features">
+          <div class="feature reveal">
+            <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-razor"/></svg></span>
+            <div><strong>Navalha e toalha quente</strong><span>Barba modelada do jeito clássico.</span></div>
+          </div>
+          <div class="feature reveal" style="--d:.06s">
+            <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-child"/></svg></span>
+            <div><strong>Corte infantil</strong><span>Paciência e cuidado com os pequenos.</span></div>
+          </div>
+          <div class="feature reveal" style="--d:.12s">
+            <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg></span>
+            <div><strong>Atendimento pontual</strong><span>Por ordem de agendamento.</span></div>
+          </div>
+          <div class="feature reveal" style="--d:.18s">
+            <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-comb"/></svg></span>
+            <div><strong>Produtos de qualidade</strong><span>Cuidado do início ao fim.</span></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="servicos" class="section servicos">
+  <section class="section booking" id="agendar" aria-labelledby="agendar-title">
     <div class="container">
-      <span class="eyebrow">Serviços</span>
-      <h2>Cuidado completo, do jeito certo</h2>
+      <div class="section-head section-head-center">
+        <div>
+          <span class="eyebrow reveal">Agendamento</span>
+          <h2 id="agendar-title" class="reveal">Reserve seu <em>horário</em></h2>
+          <p class="lead reveal">Três passos e pronto. Confirma na hora, sem precisar ligar.</p>
+        </div>
+      </div>
 
-      <div class="cards-grid">
-        <div class="service-card">
-          <h3>Corte clássico</h3>
-          <p>Tesoura e máquina, com acabamento na navalha.</p>
-          <span class="price">R$ 45</span>
-        </div>
-        <div class="service-card">
-          <h3>Barba</h3>
-          <p>Toalha quente, navalha e hidratação.</p>
-          <span class="price">R$ 35</span>
-        </div>
-        <div class="service-card featured">
-          <span class="badge">Mais pedido</span>
-          <h3>Combo corte + barba</h3>
-          <p>O pacote completo, com prioridade no agendamento.</p>
-          <span class="price">R$ 70</span>
-        </div>
-        <div class="service-card">
-          <h3>Sobrancelha</h3>
-          <p>Alinhamento na navalha ou pinça.</p>
-          <span class="price">R$ 20</span>
-        </div>
+      <ol class="how">
+        <li class="how-item reveal"><b>01</b><div><strong>Escolha o serviço</strong><span>Um ou mais, com o valor na hora</span></div></li>
+        <li class="how-item reveal" style="--d:.08s"><b>02</b><div><strong>Dia e horário</strong><span>Só aparecem horários de funcionamento</span></div></li>
+        <li class="how-item reveal" style="--d:.16s"><b>03</b><div><strong>Confirme</strong><span>Seu horário fica salvo neste navegador</span></div></li>
+      </ol>
+
+      <div class="booking-layout">
+        <form class="bk-card reveal" id="booking-form" novalidate>
+          <fieldset class="bk-step" id="step-services">
+            <legend class="bk-legend"><b>1</b>Escolha o serviço</legend>
+            <div class="svc-options" id="svc-options" role="group" aria-label="Serviços"></div>
+          </fieldset>
+
+          <fieldset class="bk-step" id="step-when">
+            <legend class="bk-legend"><b>2</b>Dia e horário</legend>
+            <span class="bk-sub" id="date-label">Dia</span>
+            <div class="date-scroller" id="date-options" role="group" aria-labelledby="date-label"></div>
+            <span class="bk-sub" id="time-label">Horário</span>
+            <div id="time-options" role="group" aria-labelledby="time-label">
+              <p class="bk-empty">Escolha um dia para ver os horários.</p>
+            </div>
+          </fieldset>
+
+          <fieldset class="bk-step" id="step-contact">
+            <legend class="bk-legend"><b>3</b>Seus dados</legend>
+            <div class="field-grid">
+              <div class="field">
+                <label for="bk-name">Nome</label>
+                <input id="bk-name" name="name" type="text" autocomplete="name" placeholder="Como podemos te chamar?" required>
+              </div>
+              <div class="field">
+                <label for="bk-phone">WhatsApp</label>
+                <input id="bk-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="(11) 90000-0000" required>
+              </div>
+              <div class="field field-full">
+                <label for="bk-notes">Observação <small>(opcional)</small></label>
+                <textarea id="bk-notes" name="notes" rows="3" placeholder="Ex.: quero manter o comprimento em cima"></textarea>
+              </div>
+            </div>
+          </fieldset>
+
+          <p class="bk-error" id="bk-error" role="alert" hidden></p>
+
+          <button class="btn btn-gold btn-block bk-submit" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Confirmar agendamento</button>
+          <p class="bk-fineprint">Ambiente de demonstração — o agendamento fica salvo apenas neste navegador, sem envio real.</p>
+        </form>
+
+        <aside class="bk-aside" aria-label="Resumo do agendamento">
+          <div class="summary reveal">
+            <h3>Resumo</h3>
+            <ul class="summary-list">
+              <li><span><svg class="icon" aria-hidden="true"><use href="#i-razor"/></svg>Serviços</span><span id="sum-services" class="is-empty">Nenhum</span></li>
+              <li><span><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Dia</span><span id="sum-date" class="is-empty">A escolher</span></li>
+              <li><span><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>Horário</span><span id="sum-time" class="is-empty">A escolher</span></li>
+            </ul>
+            <div class="summary-total"><span>Total</span><strong id="sum-total" aria-live="polite">R$ 0</strong></div>
+            <p class="summary-note">Valores fictícios, só para demonstração.</p>
+          </div>
+          <div class="my-bookings" id="my-bookings" hidden>
+            <h3>Meus agendamentos</h3>
+            <div id="bookings-list"></div>
+          </div>
+        </aside>
       </div>
     </div>
   </section>
 
-  <section id="horarios" class="section horarios">
-    <div class="container horarios-grid">
-      <div>
-        <span class="eyebrow">Horários</span>
-        <h2>Quando estamos de portas abertas</h2>
-        <ul class="hours-list">
-          <li><span>Terça a sexta</span><span>9h — 19h</span></li>
-          <li><span>Sábado</span><span>9h — 17h</span></li>
-          <li><span>Domingo e segunda</span><span>Fechado</span></li>
-        </ul>
-      </div>
-      <div class="horarios-note">
-        <p>Atendimento por ordem de agendamento. Chegue com 10 minutos de antecedência para não perder o horário reservado.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="agendar" class="section cta">
+  <section class="visit section" id="visite" aria-labelledby="visite-title">
     <div class="container">
-      <div class="cta-content">
-        <span class="eyebrow">Agendamento</span>
-        <h2>Pronto para o próximo corte?</h2>
-        <p>Escolha o serviço, a data e o horário. Confirma na hora, sem precisar ligar.</p>
+      <div class="section-head">
+        <div>
+          <span class="eyebrow reveal">Visite</span>
+          <h2 id="visite-title" class="reveal">Horários e <em>localização</em></h2>
+        </div>
       </div>
-
-      <form id="booking-form" class="booking-card" novalidate>
-        <div class="booking-field">
-          <label>Serviço</label>
-          <div class="option-grid" id="service-options">
-            <button type="button" class="option-chip" data-value="Corte clássico" data-price="R$ 45">Corte clássico<span>R$ 45</span></button>
-            <button type="button" class="option-chip" data-value="Barba" data-price="R$ 35">Barba<span>R$ 35</span></button>
-            <button type="button" class="option-chip" data-value="Combo corte + barba" data-price="R$ 70">Combo corte + barba<span>R$ 70</span></button>
-            <button type="button" class="option-chip" data-value="Sobrancelha" data-price="R$ 20">Sobrancelha<span>R$ 20</span></button>
+      <div class="visit-grid">
+        <div class="visit-card reveal">
+          <span class="status-pill status-pill-lg" data-status>
+            <span class="status-dot" aria-hidden="true"></span>
+            <span data-status-title>Seg a sáb</span>
+            <span class="status-sep" aria-hidden="true">·</span>
+            <span data-status-detail>confira os horários</span>
+          </span>
+          <ul class="hours">
+            <li data-days="1 2 3 4 5"><span>Segunda a sexta</span><span>9h às 19h</span></li>
+            <li data-days="6"><span>Sábado</span><span>9h às 17h</span></li>
+            <li data-days="0" class="closed"><span>Domingo</span><span>Fechado</span></li>
+          </ul>
+          <div class="address">
+            <svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>
+            <div>
+              <strong>Rua das Tesouras, 128*</strong>
+              <span>Vila Exemplo · São Paulo, SP</span>
+            </div>
+          </div>
+          <p class="visit-fineprint">*Endereço fictício — este é um projeto de demonstração.</p>
+        </div>
+        <div class="map-illustration reveal" style="--d:.08s" aria-hidden="true">
+          <div class="map-grid"></div>
+          <span class="map-pin"><svg class="icon icon-fill" aria-hidden="true"><use href="#i-pin"/></svg></span>
+          <div class="map-card">
+            <span class="brand-mark"><svg class="icon" viewBox="0 0 24 24"><use href="#i-scissors"/></svg></span>
+            <div><strong>Barbearia Nobre</strong><span>Vila Exemplo</span></div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="booking-field">
-          <label for="date-input">Data</label>
-          <input type="date" id="date-input" class="date-input">
-          <p class="booking-hint" id="date-hint" hidden></p>
-        </div>
+  <section class="section faq" id="duvidas" aria-labelledby="duvidas-title">
+    <div class="container faq-grid">
+      <div class="faq-intro">
+        <span class="eyebrow reveal">Dúvidas</span>
+        <h2 id="duvidas-title" class="reveal">Perguntas <em>frequentes</em></h2>
+        <p class="lead reveal">Não achou o que procurava? No projeto real, esse espaço levaria direto pro contato da barbearia.</p>
+      </div>
+      <div class="faq-list reveal">
+        <details class="faq-item" open>
+          <summary>Como faço para agendar?<span class="faq-plus" aria-hidden="true"></span></summary>
+          <div class="faq-answer"><p>Aqui mesmo no site: escolha o serviço, o dia e o horário e toque em "Confirmar agendamento". O horário fica salvo em "Meus agendamentos", neste navegador.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Vocês cortam cabelo de criança?<span class="faq-plus" aria-hidden="true"></span></summary>
+          <div class="faq-answer"><p>Sim! O Corte Infantil é feito com paciência e cuidado com os pequenos.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Qual o horário de funcionamento?<span class="faq-plus" aria-hidden="true"></span></summary>
+          <div class="faq-answer"><p>Segunda a sexta das 9h às 19h e sábado das 9h às 17h. Aos domingos a barbearia fica fechada.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Preciso remarcar ou cancelar. Como faço?<span class="faq-plus" aria-hidden="true"></span></summary>
+          <div class="faq-answer"><p>Os horários que você agendou aparecem em "Meus agendamentos", ao lado do resumo. Toque em Remarcar ou Cancelar.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
 
-        <div class="booking-field">
-          <label>Horário</label>
-          <div class="option-row" id="time-options">
-            <p class="booking-hint">Escolha uma data para ver os horários disponíveis.</p>
-          </div>
-        </div>
-
-        <div class="booking-grid-2">
-          <div class="booking-field">
-            <label for="booking-name">Nome</label>
-            <input type="text" id="booking-name" placeholder="Seu nome" required>
-          </div>
-          <div class="booking-field">
-            <label for="booking-phone">WhatsApp</label>
-            <input type="tel" id="booking-phone" placeholder="(00) 00000-0000" required>
-          </div>
-        </div>
-
-        <div class="booking-field">
-          <label>Lembrete</label>
-          <div class="option-row" id="notify-options">
-            <button type="button" class="option-chip small active" data-value="whatsapp">WhatsApp</button>
-            <button type="button" class="option-chip small" data-value="email">E-mail</button>
-            <button type="button" class="option-chip small" data-value="nenhum">Não quero</button>
-          </div>
-        </div>
-
-        <p class="booking-error" id="booking-error" hidden></p>
-
-        <button type="submit" class="btn btn-primary btn-block">Confirmar agendamento</button>
-        <p class="booking-disclaimer">Ambiente de demonstração — o agendamento fica salvo apenas neste navegador.</p>
-      </form>
-
-      <div class="my-bookings" id="my-bookings">
-        <h3>Meus agendamentos</h3>
-        <div class="bookings-list" id="bookings-list">
-          <p class="bookings-empty">Nenhum agendamento ainda.</p>
-        </div>
+  <section class="final" aria-labelledby="final-title">
+    <div class="final-bg" aria-hidden="true"></div>
+    <div class="container">
+      <span class="eyebrow eyebrow-center reveal">Barbearia Nobre</span>
+      <h2 id="final-title" class="reveal">Pronto para o próximo <em>corte?</em></h2>
+      <p class="reveal">Agende agora e descubra a experiência Nobre.</p>
+      <div class="hero-actions reveal">
+        <a class="btn btn-gold" href="#agendar">Agendar horário<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
     </div>
   </section>
@@ -182,9 +458,46 @@
 
 <footer class="site-footer">
   <div class="container">
-    <p>&copy; 2026 Barbearia Nobre. Projeto demonstrativo desenvolvido pela Apex Web.</p>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#inicio">
+          <span class="brand-mark" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><use href="#i-scissors"/></svg></span>
+          <span class="brand-text"><strong>Barbearia</strong><span>Nobre</span></span>
+        </a>
+        <p>Estilo, precisão e atitude. Projeto de portfólio da Apex Web.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#agendar">Agendamento</a></li>
+          <li><a href="#visite">Localização</a></li>
+          <li><a href="#duvidas">Dúvidas</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Horários</h4>
+        <ul>
+          <li>Seg a sex: 9h às 19h</li>
+          <li>Sáb: 9h às 17h</li>
+          <li>Dom: fechado</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Barbearia Nobre. Projeto demonstrativo desenvolvido pela Apex Web.</span>
+      <span>Site por <a href="../../index.html">Apex Web</a></span>
+    </div>
   </div>
 </footer>
+
+<button class="to-top" type="button" aria-label="Voltar ao topo"><svg class="icon" aria-hidden="true"><use href="#i-arrow-up"/></svg></button>
+
+<div class="toast" id="toast" role="status" aria-live="polite">
+  <svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>
+  <span id="toast-text"></span>
+</div>
 
 <script src="script.js"></script>
 </body>
