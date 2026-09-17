@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Ânima Psicologia">
+  <circle cx="32" cy="32" r="32" fill="#22392D"/>
+  <path d="M32 50V31" stroke="#F7F2EA" stroke-width="3" stroke-linecap="round"/>
+  <path d="M31.5 35C31.5 25 24.5 18.5 14.5 19c-.3 10 6.6 16.3 17 16Z" fill="#9DB59C"/>
+  <path d="M32.5 31C32.5 20.5 40 13.5 50.5 14c.2 10.5-7.2 17.3-18 17Z" fill="#F7F2EA"/>
+  <circle cx="32" cy="51" r="2.2" fill="#C98B6B"/>
+</svg>
