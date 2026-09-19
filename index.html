@@ -31,6 +31,7 @@
       <img src="assets/img/logo-icon.png" alt="APX Web">
     </a>
     <ul class="nav-links" id="nav-links">
+      <span class="nav-indicator" id="nav-indicator" aria-hidden="true"></span>
       <li><a href="#quem-somos">Quem Somos</a></li>
       <li><a href="#especialidades">Especialidades</a></li>
       <li><a href="#como-funciona">Como Funciona</a></li>
@@ -91,7 +92,7 @@
 
     <div class="container hero-content">
       <img src="assets/img/logo-mark.png" alt="APX Web" class="hero-logo" data-reveal>
-      <h1 data-reveal data-delay="1">Ideias que constroem <span class="text-shine">o seu futuro</span></h1>
+      <h1 class="hero-title"><span class="word">Ideias</span> <span class="word">que</span> <span class="word">constroem</span> <span class="text-shine"><span class="word">o</span> <span class="word">seu</span> <span class="word">futuro</span></span></h1>
       <p class="hero-sub" data-reveal data-delay="2">Da ideia ao sucesso.</p>
       <div class="hero-actions" data-reveal data-delay="3">
         <a href="#contato" class="btn btn-primary">Vamos conversar?</a>
@@ -364,7 +365,11 @@
 </footer>
 
 <button class="back-to-top" id="back-to-top" aria-label="Voltar ao topo">
-  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg class="btt-ring" viewBox="0 0 52 52" aria-hidden="true">
+    <circle class="btt-track" cx="26" cy="26" r="24"></circle>
+    <circle class="btt-bar" id="btt-bar" cx="26" cy="26" r="24"></circle>
+  </svg>
+  <svg class="btt-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M12 19V5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
     <path d="M5 12L12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>

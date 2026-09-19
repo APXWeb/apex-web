@@ -43,14 +43,67 @@
   const header = document.getElementById('site-header');
   const progressBar = document.getElementById('scroll-progress');
   const backToTop = document.getElementById('back-to-top');
+  const bttBar = document.getElementById('btt-bar');
   const sections = document.querySelectorAll('main section[id]');
   const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+
+  // Sublinhado unico que desliza entre os itens do menu
+  const navIndicator = document.getElementById('nav-indicator');
+  const navItems = Array.from(navLinks.querySelectorAll('a:not(.nav-cta)'));
+  let navHovering = false;
+
+  function moveIndicator(el) {
+    if (!navIndicator) return;
+    if (!el) {
+      navIndicator.style.opacity = '0';
+      return;
+    }
+    navIndicator.style.opacity = '1';
+    navIndicator.style.width = `${el.offsetWidth}px`;
+    navIndicator.style.top = `${el.offsetTop + el.offsetHeight - 2}px`;
+    navIndicator.style.transform = `translateX(${el.offsetLeft}px)`;
+  }
+
+  function updateIndicator() {
+    if (!navIndicator) return;
+    if (window.innerWidth <= 900) {
+      navLinks.classList.remove('has-indicator');
+      navIndicator.style.opacity = '0';
+      return;
+    }
+    navLinks.classList.add('has-indicator');
+    moveIndicator(navItems.find(a => a.classList.contains('active')) || null);
+  }
+
+  if (navIndicator) {
+    navItems.forEach(a => {
+      a.addEventListener('pointerenter', () => {
+        if (window.innerWidth > 900) {
+          navHovering = true;
+          moveIndicator(a);
+        }
+      });
+    });
+    const leaveNav = () => {
+      navHovering = false;
+      updateIndicator();
+    };
+    navLinks.addEventListener('pointerleave', leaveNav);
+    header.addEventListener('pointerleave', leaveNav);
+    window.addEventListener('blur', leaveNav);
+    window.addEventListener('resize', updateIndicator);
+  }
 
   function onScroll() {
     const scrollY = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const progress = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
     progressBar.style.width = `${progress}%`;
+
+    if (bttBar) {
+      const ring = 151;
+      bttBar.style.strokeDashoffset = `${ring - (ring * progress) / 100}`;
+    }
 
     header.classList.toggle('scrolled', scrollY > 20);
     backToTop.classList.toggle('show', scrollY > 600);
@@ -64,6 +117,8 @@
     navAnchors.forEach(a => {
       a.classList.toggle('active', a.getAttribute('href') === `#${currentId}`);
     });
+
+    if (!navHovering) updateIndicator();
   }
 
   let scrollScheduled = false;
@@ -79,13 +134,22 @@
     window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
   });
 
-  // Spotlight hover effect on cards
+  // Spotlight + borda que acende acompanhando o cursor nos cards
   if (!prefersReducedMotion) {
-    document.querySelectorAll('[data-spotlight]').forEach(card => {
+    document.querySelectorAll('.spec-card, .portfolio-card').forEach(card => {
       card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
         card.style.setProperty('--mx', `${((e.clientX - rect.left) / rect.width) * 100}%`);
         card.style.setProperty('--my', `${((e.clientY - rect.top) / rect.height) * 100}%`);
+      });
+    });
+
+    // O preenchimento do botao nasce do ponto por onde o cursor entrou
+    document.querySelectorAll('.btn').forEach(btn => {
+      btn.addEventListener('mouseenter', (e) => {
+        const rect = btn.getBoundingClientRect();
+        btn.style.setProperty('--bx', `${((e.clientX - rect.left) / rect.width) * 100}%`);
+        btn.style.setProperty('--by', `${((e.clientY - rect.top) / rect.height) * 100}%`);
       });
     });
   }
@@ -146,5 +210,33 @@
         el.style.transform = '';
       });
     });
+  }
+
+  // Titulo da home entrando palavra por palavra.
+  // As classes sao adicionadas pelo JS: se o script falhar, o texto ja aparece normal.
+  const heroTitle = document.querySelector('.hero-title');
+  if (heroTitle && !prefersReducedMotion) {
+    const words = heroTitle.querySelectorAll('.word');
+    heroTitle.classList.add('words-ready');
+    words.forEach((word, i) => {
+      word.style.transitionDelay = `${120 + i * 90}ms`;
+    });
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => heroTitle.classList.add('words-in'));
+    });
+  }
+
+  // Passos do "Como Funcionamos" se desenhando conforme entram na tela
+  const steps = Array.from(document.querySelectorAll('.step'));
+  if (steps.length && 'IntersectionObserver' in window && !prefersReducedMotion) {
+    const stepObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const index = steps.indexOf(entry.target);
+        setTimeout(() => entry.target.classList.add('is-drawn'), index * 170);
+        stepObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.35 });
+    steps.forEach(step => stepObserver.observe(step));
   }
 })();
