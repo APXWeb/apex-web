@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOVA — Você não usa um chatbot. Você tem uma IA que age.</title>
+<meta name="description" content="NOVA é a plataforma onde você cria a sua própria assistente agêntica: ela entende seu contexto, monta um plano, pede permissão e executa — de forma reversível.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="NOVA — Você não usa um chatbot. Você tem uma IA que age.">
+<meta property="og:description" content="Crie a sua assistente agêntica: entende o contexto, monta o plano, pede permissão e executa de forma reversível.">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#workspace">Ir para o workspace</a>
+
+<header class="site-header" id="site-header">
+  <nav class="nav">
+    <a href="#" class="brand" aria-label="NOVA — início">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M12 2.5l1.9 5.8a4 4 0 0 0 2.5 2.5l5.8 1.9-5.8 1.9a4 4 0 0 0-2.5 2.5L12 22.5l-1.9-5.8a4 4 0 0 0-2.5-2.5L1.8 12.3l5.8-1.9a4 4 0 0 0 2.5-2.5L12 2.5z" fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="brand-text">NOVA</span>
+    </a>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#como">Como ela trabalha</a></li>
+      <li><a href="#dominios">O que ela cuida</a></li>
+      <li><a href="#workspace">Workspace</a></li>
+      <li><a href="#confianca">Permissões</a></li>
+      <li><a href="#duvidas">Dúvidas</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="btn btn-quiet" type="button" id="cta-entrar">Entrar</button>
+      <button class="btn btn-primary" type="button" id="cta-criar">Criar minha IA</button>
+    </div>
+
+    <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-glow" aria-hidden="true"></div>
+
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <span class="eyebrow" data-reveal>
+          <span class="eyebrow-dot" aria-hidden="true"></span>
+          Next-generation Organization &amp; Virtual Autonomy
+        </span>
+
+        <h1 data-reveal data-delay="1">
+          Você não usa<br>um chatbot.<br>
+          <span class="accent-text">Você tem uma IA<br>que age.</span>
+        </h1>
+
+        <p class="hero-sub" data-reveal data-delay="2">
+          Na NOVA você cria a sua própria assistente agêntica — com o nome que você escolher.
+          Ela entende seu contexto real, monta um plano, pede permissão e executa dentro da plataforma.
+        </p>
+
+        <div class="hero-actions" data-reveal data-delay="3">
+          <button class="btn btn-primary btn-lg" type="button" id="hero-criar">
+            Criar minha IA <span aria-hidden="true">→</span>
+          </button>
+          <button class="btn btn-ghost btn-lg" type="button" data-scroll="#como">Ver como ela trabalha</button>
+        </div>
+
+      </div>
+
+      <!-- Painel agêntico ao vivo -->
+      <div class="hero-panel" data-reveal data-delay="2">
+        <div class="panel-head">
+          <span class="panel-avatar" id="demo-avatar" aria-hidden="true"></span>
+          <div class="panel-id">
+            <strong id="demo-name">Luna</strong>
+            <span id="demo-role">Assistente de você · modo copiloto</span>
+          </div>
+          <span class="panel-badge">Ao vivo</span>
+        </div>
+
+        <div class="panel-body" id="demo-body">
+          <div class="bubble bubble-user" id="demo-request">Organize minha semana.</div>
+          <div class="trace" id="demo-trace"></div>
+        </div>
+
+        <div class="panel-foot">
+          <button class="chip-btn" type="button" data-demo="Organize minha semana">Organize minha semana</button>
+          <button class="chip-btn" type="button" data-demo="Como estão minhas finanças?">Minhas finanças</button>
+          <button class="chip-btn" type="button" data-demo="O que eu tenho pra hoje?">Meu dia</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-strip">
+      <ul class="hero-proof">
+        <li><strong id="proof-latency">—</strong><span>resposta local, sem servidor</span></li>
+        <li><strong>0</strong><span>ações sem permissão</span></li>
+        <li><strong>100%</strong><span>reversível a um clique</span></li>
+        <li><strong>5</strong><span>áreas num só contexto</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- COMO ELA TRABALHA -->
+  <section class="section" id="como">
+    <div class="container">
+      <span class="section-eyebrow" data-reveal>O ciclo agêntico</span>
+      <h2 data-reveal>Quatro passos, sempre nessa ordem</h2>
+      <p class="lead" data-reveal>
+        A diferença entre um chatbot e uma IA que age está no meio do caminho: o plano e a permissão.
+        A NOVA nunca pula essas duas etapas.
+      </p>
+
+      <ol class="steps">
+        <li class="step" data-reveal>
+          <span class="step-num">01</span>
+          <h3>Contexto</h3>
+          <p>Ela lê o estado real do seu workspace — tarefas abertas, eventos próximos, metas, hábitos e saldo — antes de responder qualquer coisa.</p>
+          <code class="step-code">contexto.ler(tarefas, agenda, metas, habitos, financas)</code>
+        </li>
+        <li class="step" data-reveal data-delay="1">
+          <span class="step-num">02</span>
+          <h3>Plano</h3>
+          <p>Em vez de um texto genérico, ela devolve operações concretas: o que vai criar, mover, concluir ou registrar — item por item.</p>
+          <code class="step-code">plano.montar() → [3 operações]</code>
+        </li>
+        <li class="step" data-reveal data-delay="2">
+          <span class="step-num">03</span>
+          <h3>Permissão</h3>
+          <p>Nada acontece sem o seu aval. Você aprova o plano inteiro, recusa, ou deixa a IA agir sozinha só no que for de baixo risco.</p>
+          <code class="step-code">permissao.pedir(risco: baixo | médio)</code>
+        </li>
+        <li class="step" data-reveal data-delay="3">
+          <span class="step-num">04</span>
+          <h3>Execução reversível</h3>
+          <p>Ela aplica as mudanças de verdade e guarda o caminho de volta. Um clique em desfazer devolve tudo ao estado anterior.</p>
+          <code class="step-code">executar() · desfazer() disponível</code>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- DOMÍNIOS -->
+  <section class="section section-alt" id="dominios">
+    <div class="container">
+      <span class="section-eyebrow" data-reveal>Domínios</span>
+      <h2 data-reveal>Cinco áreas, um só contexto</h2>
+      <p class="lead" data-reveal>
+        A NOVA não trata sua agenda separada das suas metas. Tudo vive no mesmo lugar — por isso ela consegue
+        remanejar uma tarefa olhando para o seu dia inteiro.
+      </p>
+
+      <div class="domain-grid">
+        <button class="domain-card" type="button" data-domain="tarefas" data-reveal>
+          <span class="domain-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 12.5l4 4 12-12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </span>
+          <h3>Tarefas</h3>
+          <p>Cria, prioriza, reagenda e conclui. Entende "pra sexta", "urgente" e "depois da reunião".</p>
+          <span class="domain-count"><strong data-count="tarefas">0</strong> abertas</span>
+        </button>
+
+        <button class="domain-card" type="button" data-domain="agenda" data-reveal data-delay="1">
+          <span class="domain-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M3 10h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><rect x="7" y="13" width="3" height="3" rx="0.6" fill="currentColor"/></svg>
+          </span>
+          <h3>Agenda</h3>
+          <p>Marca compromissos, cria blocos de foco e avisa quando dois eventos se chocam.</p>
+          <span class="domain-count"><strong data-count="agenda">0</strong> eventos</span>
+        </button>
+
+        <button class="domain-card" type="button" data-domain="metas" data-reveal data-delay="2">
+          <span class="domain-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg>
+          </span>
+          <h3>Metas</h3>
+          <p>Quebra objetivos grandes em progresso mensurável e mostra o quanto falta.</p>
+          <span class="domain-count"><strong data-count="metas">0</strong> ativas</span>
+        </button>
+
+        <button class="domain-card" type="button" data-domain="habitos" data-reveal data-delay="3">
+          <span class="domain-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M20 7.5A7 7 0 1 0 21 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M21 4v4h-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 8.5V12l2.5 1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </span>
+          <h3>Hábitos</h3>
+          <p>Acompanha sequências diárias e te lembra do que sustenta as metas de longo prazo.</p>
+          <span class="domain-count"><strong data-count="habitos">0</strong> em curso</span>
+        </button>
+
+        <button class="domain-card" type="button" data-domain="financas" data-reveal data-delay="4">
+          <span class="domain-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 17l5-5 4 3 8-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 7h5v5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <h3>Finanças</h3>
+          <p>Registra entradas e saídas em linguagem natural e fecha o mês sem planilha.</p>
+          <span class="domain-count"><strong data-count="financas">R$ 0</strong> no mês</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKSPACE -->
+  <section class="section" id="workspace">
+    <div class="container">
+      <span class="section-eyebrow" data-reveal>Workspace</span>
+      <h2 data-reveal>Fale com ela. Ela age de verdade.</h2>
+      <p class="lead" data-reveal>
+        Isto não é uma animação: escreva um pedido em português e a NOVA vai ler o estado real abaixo,
+        montar um plano, pedir sua permissão e alterar os dados — com desfazer disponível.
+      </p>
+
+      <div class="workspace" data-reveal>
+        <!-- Coluna do agente -->
+        <div class="agent">
+          <div class="agent-head">
+            <span class="agent-avatar" id="agent-avatar" aria-hidden="true"></span>
+            <div class="agent-id">
+              <strong id="agent-name">Luna</strong>
+              <span id="agent-status">Pronta · lê o contexto antes de agir</span>
+            </div>
+            <button class="icon-btn" type="button" id="btn-config" aria-label="Configurar assistente" title="Configurar assistente">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-1.8-.3 1.6 1.6 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1A1.6 1.6 0 0 0 9 19.4a1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0 .3-1.8 1.6 1.6 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1A1.6 1.6 0 0 0 4.6 9a1.6 1.6 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3H9a1.6 1.6 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 1 1.5 1.6 1.6 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8V9a1.6 1.6 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1z" stroke="currentColor" stroke-width="1.4"/></svg>
+            </button>
+          </div>
+
+          <div class="mode-row">
+            <span class="mode-label">Modo</span>
+            <div class="mode-switch" role="radiogroup" aria-label="Modo de autonomia">
+              <button type="button" role="radio" aria-checked="true" class="mode-opt is-on" data-mode="copiloto">Copiloto</button>
+              <button type="button" role="radio" aria-checked="false" class="mode-opt" data-mode="autonomo">Autônomo</button>
+            </div>
+            <span class="mode-hint" id="mode-hint">Pede permissão para tudo</span>
+          </div>
+
+          <div class="chat" id="chat" aria-live="polite"></div>
+
+          <form class="composer" id="composer" autocomplete="off">
+            <input type="text" id="input" placeholder="Ex.: organize minha semana" aria-label="Escreva um pedido para a sua IA">
+            <button class="btn btn-primary" type="submit" id="send-btn" aria-label="Enviar pedido">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </form>
+
+          <div class="suggestions" id="suggestions"></div>
+        </div>
+
+        <!-- Coluna do estado -->
+        <aside class="state">
+          <div class="state-tabs" role="tablist" aria-label="Áreas do workspace">
+            <button role="tab" aria-selected="true" class="state-tab is-on" data-tab="tarefas">Tarefas</button>
+            <button role="tab" aria-selected="false" class="state-tab" data-tab="agenda">Agenda</button>
+            <button role="tab" aria-selected="false" class="state-tab" data-tab="metas">Metas</button>
+            <button role="tab" aria-selected="false" class="state-tab" data-tab="habitos">Hábitos</button>
+            <button role="tab" aria-selected="false" class="state-tab" data-tab="financas">Finanças</button>
+          </div>
+
+          <div class="state-body">
+            <div class="state-panel is-on" data-panel="tarefas"><ul class="list" id="list-tarefas"></ul></div>
+            <div class="state-panel" data-panel="agenda"><ul class="list" id="list-agenda"></ul></div>
+            <div class="state-panel" data-panel="metas"><ul class="list" id="list-metas"></ul></div>
+            <div class="state-panel" data-panel="habitos"><ul class="list" id="list-habitos"></ul></div>
+            <div class="state-panel" data-panel="financas">
+              <div class="fin-summary" id="fin-summary"></div>
+              <ul class="list" id="list-financas"></ul>
+            </div>
+          </div>
+
+          <div class="state-foot">
+            <button class="btn btn-quiet btn-sm" type="button" id="btn-undo" disabled>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 14L4 9l5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 9h10a6 6 0 0 1 0 12h-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              Desfazer
+            </button>
+            <button class="btn btn-quiet btn-sm" type="button" id="btn-log">Histórico</button>
+            <button class="btn btn-quiet btn-sm" type="button" id="btn-reset">Reiniciar demo</button>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONFIANÇA -->
+  <section class="section section-alt" id="confianca">
+    <div class="container">
+      <span class="section-eyebrow" data-reveal>Permissões</span>
+      <h2 data-reveal>Autonomia com freio de mão</h2>
+      <p class="lead" data-reveal>
+        Uma IA que age precisa de limites explícitos. Na NOVA eles são visíveis, ajustáveis e auditáveis.
+      </p>
+
+      <div class="trust-grid">
+        <article class="trust-card" data-reveal>
+          <span class="trust-tag trust-low">Risco baixo</span>
+          <h3>Ela pode agir sozinha</h3>
+          <p>Criar uma tarefa, registrar um gasto, marcar um hábito como feito — ações aditivas que não apagam nada.</p>
+        </article>
+        <article class="trust-card" data-reveal data-delay="1">
+          <span class="trust-tag trust-mid">Risco médio</span>
+          <h3>Ela sempre pergunta</h3>
+          <p>Mover compromissos, reagendar tarefas de outras pessoas, alterar metas já em andamento.</p>
+        </article>
+        <article class="trust-card" data-reveal data-delay="2">
+          <span class="trust-tag trust-high">Sempre reversível</span>
+          <h3>Você volta atrás</h3>
+          <p>Cada execução guarda o estado anterior. O botão desfazer devolve tudo, mesmo depois de fechar a aba.</p>
+        </article>
+      </div>
+
+      <div class="audit" data-reveal>
+        <div class="audit-head">
+          <h3>Registro de ações</h3>
+          <span class="audit-note">Tudo o que a sua IA fez, em ordem</span>
+        </div>
+        <ul class="audit-list" id="audit-list"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="duvidas">
+    <div class="container narrow">
+      <span class="section-eyebrow" data-reveal>Dúvidas</span>
+      <h2 data-reveal>Perguntas frequentes</h2>
+
+      <div class="faq" data-reveal>
+        <details>
+          <summary>A IA funciona mesmo ou é uma simulação?</summary>
+          <p>Neste projeto demonstrativo, o motor roda inteiramente no seu navegador: ele interpreta o texto em português, lê o estado real do workspace e altera os dados de verdade. Não há servidor nem modelo de linguagem externo — por isso a resposta é instantânea e nada sai do seu aparelho.</p>
+        </details>
+        <details>
+          <summary>O que significa "agêntica"?</summary>
+          <p>Um chatbot responde. Uma IA agêntica decide e executa: ela transforma o seu pedido em um plano de operações concretas e aplica essas operações no sistema, em vez de só te explicar o que fazer.</p>
+        </details>
+        <details>
+          <summary>O que dá para pedir para ela?</summary>
+          <p>Criar tarefas, compromissos, objetivos, hábitos e lançamentos financeiros. Concluir, adiar, remarcar, mudar prioridade, lançar progresso e remover — um item de cada vez ou tudo de uma vez ("tira tudo que eu tenho pra fazer", "adia as atrasadas pra semana que vem"). E também perguntar: "o que eu tenho na sexta?", "quantas tarefas eu tenho?", "quanto gastei com mercado?". Se ela não entender, ela pergunta em vez de chutar.</p>
+        </details>
+        <details>
+          <summary>Como vocês evitam que ela faça besteira?</summary>
+          <p>Três camadas: classificação de risco por operação, pedido de permissão explícito antes de executar (sempre, no modo copiloto) e reversibilidade total — cada execução guarda como desfazê-la.</p>
+        </details>
+        <details>
+          <summary>Onde meus dados ficam salvos?</summary>
+          <p>No armazenamento local do próprio navegador. Trocando de aparelho ou limpando os dados do site, o workspace volta ao estado inicial da demonstração.</p>
+        </details>
+        <details>
+          <summary>Dá para dar outro nome para a assistente?</summary>
+          <p>Sim — é a ideia central da NOVA. No botão de configuração do workspace você define o nome e o modo de autonomia dela, e a escolha fica salva.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="cta-glow" aria-hidden="true"></div>
+    <div class="container cta-inner">
+      <h2 data-reveal>Crie a sua IA e dê o primeiro comando</h2>
+      <p data-reveal>Leva menos de um minuto — e ela já começa entendendo o contexto que estiver no workspace.</p>
+      <div class="hero-actions" data-reveal>
+        <button class="btn btn-primary btn-lg" type="button" id="cta-final">Criar minha IA <span aria-hidden="true">→</span></button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2.5l1.9 5.8a4 4 0 0 0 2.5 2.5l5.8 1.9-5.8 1.9a4 4 0 0 0-2.5 2.5L12 22.5l-1.9-5.8a4 4 0 0 0-2.5-2.5L1.8 12.3l5.8-1.9a4 4 0 0 0 2.5-2.5L12 2.5z" fill="currentColor"/>
+      </svg>
+      </span>
+      <span class="brand-text">NOVA</span>
+    </div>
+    <p class="footer-note">
+      Projeto demonstrativo — o motor da assistente roda no navegador, sem servidor.
+      Design e desenvolvimento: <a href="https://apxweb.github.io/apex-web/" target="_blank" rel="noopener">APX Web</a>.
+    </p>
+  </div>
+</footer>
+
+<!-- ===== APP (abre depois do cadastro/login) ===== -->
+<div class="app" id="app" hidden>
+  <aside class="app-side" id="app-side">
+    <div class="app-brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2.5l1.9 5.8a4 4 0 0 0 2.5 2.5l5.8 1.9-5.8 1.9a4 4 0 0 0-2.5 2.5L12 22.5l-1.9-5.8a4 4 0 0 0-2.5-2.5L1.8 12.3l5.8-1.9a4 4 0 0 0 2.5-2.5L12 2.5z" fill="currentColor"/></svg>
+      </span>
+      <span class="brand-text">NOVA</span>
+      <button class="icon-btn app-side-close" type="button" id="app-side-close" aria-label="Fechar menu">×</button>
+    </div>
+
+    <nav class="app-nav" aria-label="Áreas do app">
+      <button class="app-nav-item is-on" type="button" data-view="visao">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.7"/><rect x="13" y="3" width="8" height="5" rx="2" stroke="currentColor" stroke-width="1.7"/><rect x="13" y="10" width="8" height="11" rx="2" stroke="currentColor" stroke-width="1.7"/><rect x="3" y="13" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.7"/></svg>
+        Visão geral
+      </button>
+      <button class="app-nav-item" type="button" data-view="agenda">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M3 10h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        Agenda
+        <span class="app-nav-count" data-nav-count="agenda"></span>
+      </button>
+      <button class="app-nav-item" type="button" data-view="tarefas">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12.5l3.5 3.5L20 4" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        Tarefas
+        <span class="app-nav-count" data-nav-count="tarefas"></span>
+      </button>
+      <button class="app-nav-item" type="button" data-view="metas">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>
+        Objetivos
+      </button>
+      <button class="app-nav-item" type="button" data-view="habitos">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 7.5A7 7 0 1 0 21 12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M21 4v4h-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Hábitos
+      </button>
+      <button class="app-nav-item" type="button" data-view="financas">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 17l5-5 4 3 8-8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 7h5v5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Finanças
+      </button>
+      <button class="app-nav-item" type="button" data-view="chat">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-5.4A8 8 0 1 1 21 12z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        <span>Chat com a <span id="nav-ia-nome">Luna</span></span>
+      </button>
+      <button class="app-nav-item" type="button" data-view="historico">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3.5 12a8.5 8.5 0 1 0 2.6-6.1" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M3 4v4h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 8v4.5l3 1.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        Histórico
+      </button>
+    </nav>
+
+    <div class="app-user">
+      <span class="app-user-avatar" id="app-user-avatar" aria-hidden="true"></span>
+      <div class="app-user-id">
+        <strong id="app-user-nome">Você</strong>
+        <span id="app-user-email">conta local</span>
+      </div>
+      <button class="icon-btn" type="button" id="app-sair" aria-label="Sair da conta" title="Sair">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 17l5-5-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 12H9M12 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </aside>
+
+  <div class="app-main">
+    <header class="app-top">
+      <button class="icon-btn app-menu-btn" type="button" id="app-menu" aria-label="Abrir menu">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      <div class="app-top-id">
+        <h2 id="app-title">Visão geral</h2>
+        <span id="app-subtitle">Seu contexto de hoje</span>
+      </div>
+      <div class="app-top-actions">
+        <div class="mode-switch" role="radiogroup" aria-label="Modo de autonomia">
+          <button type="button" role="radio" aria-checked="true" class="mode-opt is-on" data-mode="copiloto">Copiloto</button>
+          <button type="button" role="radio" aria-checked="false" class="mode-opt" data-mode="autonomo">Autônomo</button>
+        </div>
+        <button class="btn btn-quiet btn-sm" type="button" id="app-undo" disabled>Desfazer</button>
+        <button class="btn btn-quiet btn-sm" type="button" id="app-voltar">Ver o site</button>
+      </div>
+    </header>
+
+    <div class="app-body">
+      <!-- VISÃO GERAL -->
+      <section class="app-view is-on" data-view="visao">
+        <div class="kpi-row" id="kpi-row"></div>
+
+        <div class="app-cols">
+          <div class="app-col">
+            <div class="panel-card">
+              <div class="panel-card-head">
+                <h3>Seu dia</h3>
+                <span id="visao-data"></span>
+              </div>
+              <div id="visao-dia"></div>
+            </div>
+
+            <div class="panel-card">
+              <div class="panel-card-head">
+                <h3>Peça algo para a <span class="ia-nome">Luna</span></h3>
+                <span>ela lê o contexto antes de agir</span>
+              </div>
+              <form class="composer" id="visao-composer" autocomplete="off">
+                <input type="text" id="visao-input" placeholder="Ex.: organize minha semana" aria-label="Pedido rápido">
+                <button class="btn btn-primary" type="submit" aria-label="Enviar">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </form>
+              <div class="suggestions" id="visao-sugestoes"></div>
+            </div>
+          </div>
+
+          <div class="app-col">
+            <div class="panel-card">
+              <div class="panel-card-head"><h3>Objetivos</h3><span>progresso atual</span></div>
+              <div id="visao-metas"></div>
+            </div>
+            <div class="panel-card">
+              <div class="panel-card-head"><h3>Últimas ações da IA</h3><span>auditável</span></div>
+              <ul class="audit-list" id="visao-log"></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- AGENDA -->
+      <section class="app-view" data-view="agenda">
+        <div class="view-acoes">
+          <button class="btn btn-primary btn-sm" type="button" data-novo="agenda">+ Novo compromisso</button>
+          <button class="btn btn-quiet btn-sm" type="button" data-novo="tarefas">+ Nova tarefa</button>
+        </div>
+        <div class="filtros">
+          <div class="filtro-grupo" role="group" aria-label="Filtrar por área">
+            <span class="filtro-label">Áreas</span>
+            <button class="filtro-chip is-on" type="button" data-area="tudo">Tudo</button>
+            <button class="filtro-chip" type="button" data-area="evento">Compromissos</button>
+            <button class="filtro-chip" type="button" data-area="tarefa">Tarefas</button>
+            <button class="filtro-chip" type="button" data-area="foco">Foco</button>
+            <button class="filtro-chip" type="button" data-area="habito">Hábitos</button>
+          </div>
+          <div class="filtro-grupo" role="group" aria-label="Filtrar por período">
+            <span class="filtro-label">Período</span>
+            <button class="filtro-chip" type="button" data-periodo="1">Hoje</button>
+            <button class="filtro-chip is-on" type="button" data-periodo="7">7 dias</button>
+            <button class="filtro-chip" type="button" data-periodo="30">30 dias</button>
+            <button class="filtro-chip" type="button" data-periodo="0">Tudo</button>
+          </div>
+          <span class="filtro-resultado" id="agenda-contagem"></span>
+        </div>
+        <div id="agenda-lista"></div>
+      </section>
+
+      <!-- TAREFAS -->
+      <section class="app-view" data-view="tarefas">
+        <div class="view-acoes">
+          <button class="btn btn-primary btn-sm" type="button" data-novo="tarefas">+ Nova tarefa</button>
+        </div>
+        <div class="filtros">
+          <div class="filtro-grupo" role="group" aria-label="Filtrar tarefas">
+            <span class="filtro-label">Mostrar</span>
+            <button class="filtro-chip is-on" type="button" data-tarefa="abertas">Abertas</button>
+            <button class="filtro-chip" type="button" data-tarefa="hoje">Hoje</button>
+            <button class="filtro-chip" type="button" data-tarefa="atrasadas">Atrasadas</button>
+            <button class="filtro-chip" type="button" data-tarefa="alta">Prioridade alta</button>
+            <button class="filtro-chip" type="button" data-tarefa="feitas">Concluídas</button>
+            <button class="filtro-chip" type="button" data-tarefa="todas">Todas</button>
+          </div>
+          <span class="filtro-resultado" id="tarefas-contagem"></span>
+        </div>
+        <ul class="list" id="app-tarefas"></ul>
+      </section>
+
+      <!-- OBJETIVOS -->
+      <section class="app-view" data-view="metas">
+        <div class="view-acoes">
+          <button class="btn btn-primary btn-sm" type="button" data-novo="metas">+ Novo objetivo</button>
+        </div>
+        <div class="app-grid" id="app-metas"></div>
+      </section>
+
+      <!-- HÁBITOS -->
+      <section class="app-view" data-view="habitos">
+        <div class="view-acoes">
+          <button class="btn btn-primary btn-sm" type="button" data-novo="habitos">+ Novo hábito</button>
+        </div>
+        <div class="app-grid" id="app-habitos"></div>
+      </section>
+
+      <!-- FINANÇAS -->
+      <section class="app-view" data-view="financas">
+        <div class="view-acoes">
+          <button class="btn btn-primary btn-sm" type="button" data-novo="financas">+ Novo lançamento</button>
+        </div>
+        <div class="fin-summary" id="app-fin-resumo"></div>
+        <div class="filtros">
+          <div class="filtro-grupo" role="group" aria-label="Filtrar lançamentos">
+            <span class="filtro-label">Lançamentos</span>
+            <button class="filtro-chip is-on" type="button" data-fin="tudo">Tudo</button>
+            <button class="filtro-chip" type="button" data-fin="entrada">Entradas</button>
+            <button class="filtro-chip" type="button" data-fin="saida">Saídas</button>
+          </div>
+          <span class="filtro-resultado" id="fin-contagem"></span>
+        </div>
+        <ul class="list" id="app-financas"></ul>
+      </section>
+
+      <!-- CHAT -->
+      <section class="app-view app-view-chat" data-view="chat">
+        <div class="chat-full">
+          <div class="chat" id="app-chat" aria-live="polite"></div>
+          <form class="composer" id="app-composer" autocomplete="off">
+            <input type="text" id="app-input" placeholder="Escreva um pedido em português" aria-label="Pedido para a IA">
+            <button class="btn btn-primary" type="submit" aria-label="Enviar">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </form>
+          <div class="suggestions" id="app-sugestoes"></div>
+        </div>
+      </section>
+
+      <!-- HISTÓRICO -->
+      <section class="app-view" data-view="historico">
+        <div class="panel-card">
+          <div class="panel-card-head"><h3>Tudo o que a sua IA fez</h3><span>em ordem, do mais recente</span></div>
+          <ul class="audit-list" id="app-log"></ul>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: cadastro -->
+<div class="modal" id="modal-signup" hidden>
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="signup-title">
+    <button class="modal-x" type="button" data-close aria-label="Fechar">×</button>
+    <h3 id="signup-title">Crie a sua conta</h3>
+    <p class="modal-sub">É aqui que você dá nome e limites para a sua assistente. A conta começa vazia — você monta o workspace do seu jeito.</p>
+    <p class="modal-aviso" id="su-aviso" hidden>Já existe uma conta salva neste navegador. Criar outra substitui a anterior.</p>
+
+    <form id="form-signup">
+      <label class="field">
+        <span>Seu nome</span>
+        <input type="text" id="su-nome" maxlength="24" placeholder="Pedro" required>
+      </label>
+      <label class="field">
+        <span>Seu e-mail</span>
+        <input type="email" id="su-email" placeholder="voce@email.com" required>
+      </label>
+      <label class="field">
+        <span>Nome da sua IA</span>
+        <input type="text" id="su-ia" maxlength="18" placeholder="Luna" required>
+      </label>
+      <fieldset class="field">
+        <span class="field-legend">Autonomia</span>
+        <label class="radio">
+          <input type="radio" name="su-modo" value="copiloto" checked>
+          <span><strong>Copiloto</strong> — pede permissão para tudo</span>
+        </label>
+        <label class="radio">
+          <input type="radio" name="su-modo" value="autonomo">
+          <span><strong>Autônomo</strong> — age sozinha no que é de risco baixo</span>
+        </label>
+      </fieldset>
+      <p class="form-erro" id="su-erro" hidden></p>
+      <button class="btn btn-primary btn-block" type="submit">Criar conta e entrar</button>
+      <p class="modal-fine">Já tem conta? <button type="button" class="linkish" id="ir-login">Entrar</button></p>
+    </form>
+  </div>
+</div>
+
+<!-- Modal: login -->
+<div class="modal" id="modal-login" hidden>
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="login-title">
+    <button class="modal-x" type="button" data-close aria-label="Fechar">×</button>
+    <h3 id="login-title">Entrar</h3>
+    <p class="modal-sub">Use o e-mail que você cadastrou neste navegador.</p>
+
+    <form id="form-login">
+      <label class="field">
+        <span>Seu e-mail</span>
+        <input type="email" id="li-email" placeholder="voce@email.com" required>
+      </label>
+      <p class="form-erro" id="li-erro" hidden></p>
+      <button class="btn btn-primary btn-block" type="submit">Entrar</button>
+      <p class="modal-fine">Ainda não tem conta? <button type="button" class="linkish" id="ir-signup">Criar minha IA</button></p>
+    </form>
+  </div>
+</div>
+
+<!-- Modal: criar/editar item manualmente -->
+<div class="modal" id="modal-item" hidden>
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="item-title">
+    <button class="modal-x" type="button" data-close aria-label="Fechar">&times;</button>
+    <h3 id="item-title">Novo item</h3>
+    <p class="modal-sub" id="item-sub">Preencha à mão, sem passar pela IA.</p>
+    <form id="form-item">
+      <div id="campos-item"></div>
+      <p class="form-erro" id="item-erro" hidden></p>
+      <button class="btn btn-primary btn-block" type="submit" id="item-salvar">Salvar</button>
+    </form>
+  </div>
+</div>
+
+<!-- Modal: configurar IA -->
+<div class="modal" id="modal-config" hidden>
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="modal-x" type="button" data-close aria-label="Fechar">×</button>
+    <h3 id="modal-title">Crie a sua assistente</h3>
+    <p class="modal-sub">Ela vai te atender por esse nome, e você decide o quanto ela pode agir sozinha.</p>
+
+    <form id="form-config">
+      <label class="field">
+        <span>Nome da assistente</span>
+        <input type="text" id="cfg-name" maxlength="18" placeholder="Luna" required>
+      </label>
+
+      <label class="field">
+        <span>Como quer ser chamado</span>
+        <input type="text" id="cfg-owner" maxlength="18" placeholder="Pedro">
+      </label>
+
+      <fieldset class="field">
+        <span class="field-legend">Autonomia</span>
+        <label class="radio">
+          <input type="radio" name="cfg-mode" value="copiloto" checked>
+          <span><strong>Copiloto</strong> — pede permissão para tudo</span>
+        </label>
+        <label class="radio">
+          <input type="radio" name="cfg-mode" value="autonomo">
+          <span><strong>Autônomo</strong> — age sozinha no que é de risco baixo</span>
+        </label>
+      </fieldset>
+
+      <button class="btn btn-primary btn-block" type="submit">Salvar e começar</button>
+    </form>
+  </div>
+</div>
+
+<!-- Modal: histórico -->
+<div class="modal" id="modal-log" hidden>
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="log-title">
+    <button class="modal-x" type="button" data-close aria-label="Fechar">×</button>
+    <h3 id="log-title">Histórico de execuções</h3>
+    <p class="modal-sub">Cada linha é um plano aprovado e aplicado.</p>
+    <ul class="audit-list" id="log-list"></ul>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script src="script.js"></script>
+</body>
+</html>
