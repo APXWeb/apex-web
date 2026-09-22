@@ -189,6 +189,53 @@
     });
   }
 
+  // Faixa "Projetos no ar": a animacao desloca a esteira em -50%, ou seja, o
+  // tamanho exato de METADE dela. Pra isso nunca aparecer um vazio no fim do
+  // ciclo, essa metade precisa ser mais larga que a tela — senao, quando o
+  // comeco volta pela esquerda, a ponta direita ainda nao chegou. Como isso
+  // depende da largura da janela, clonamos o grupo de cards ate dar certo.
+  const track = document.querySelector('.marquee-track');
+
+  if (track) {
+    const modelo = track.querySelector('.marquee-group');
+    const VELOCIDADE = 34; // pixels por segundo, pra manter o ritmo em qualquer largura
+    let coposAtual = 0;
+
+    function montarEsteira() {
+      const largura = modelo.getBoundingClientRect().width;
+      if (!largura) return;
+
+      // quantos grupos cabem por metade (no minimo 1, e sempre cobrindo a tela)
+      const copias = Math.max(1, Math.ceil(window.innerWidth / largura) + 1);
+      if (copias === coposAtual) return;
+      coposAtual = copias;
+
+      track.querySelectorAll('.marquee-group').forEach((g, i) => {
+        if (i > 0) g.remove();
+      });
+
+      const total = copias * 2;
+      for (let i = 1; i < total; i++) {
+        const copia = modelo.cloneNode(true);
+        copia.setAttribute('aria-hidden', 'true');
+        copia.querySelectorAll('a').forEach(a => a.setAttribute('tabindex', '-1'));
+        copia.querySelectorAll('img').forEach(img => img.setAttribute('alt', ''));
+        track.appendChild(copia);
+      }
+
+      // duracao proporcional ao percurso, pra velocidade nao mudar com a tela
+      track.style.setProperty('--marquee-dur', (largura * copias) / VELOCIDADE + 's');
+    }
+
+    montarEsteira();
+
+    let ajuste;
+    window.addEventListener('resize', () => {
+      clearTimeout(ajuste);
+      ajuste = setTimeout(montarEsteira, 180);
+    });
+  }
+
   // Mouse parallax on floating hero cards
   const hero = document.querySelector('.hero');
   const parallaxEls = document.querySelectorAll('[data-parallax]');
