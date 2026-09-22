@@ -67,7 +67,7 @@ function estadoInicial() {
       },
     ],
     candidaturas: [],
-    config: { tema: 'claro', emailAlertas: true, resumoSemanal: false, dicasCarreira: true },
+    config: { emailAlertas: true, resumoSemanal: false, dicasCarreira: true },
   };
 }
 
@@ -338,11 +338,6 @@ export function salvarConfig(dados) {
   commit('config');
 }
 
-export function aplicarTema(tema) {
-  state.config.tema = tema;
-  document.documentElement.dataset.tema = tema;
-  commit('tema');
-}
 
 /* ============================================================
    ADMIN — escrita no catalogo

@@ -4,7 +4,7 @@
 
 import { el, qs, qsa, delegate, travarScroll } from '../utils/dom.js';
 import { icon } from './icons.js';
-import { state, subscribe, aplicarTema, alertasNaoVistos } from '../services/store.js';
+import { state, subscribe, alertasNaoVistos } from '../services/store.js';
 import { rotaAtual, ir, montarUrl } from '../router.js';
 import { escapeHtml, iniciais } from '../utils/format.js';
 import { abrirBuscaRapida } from './caixaBusca.js';
@@ -47,11 +47,6 @@ export function montarHeader() {
             <kbd class="topo__kbd">/</kbd>
           </button>
 
-          <button type="button" class="btn-icone" data-tema
-                  aria-label="Alternar entre tema claro e escuro">
-            <span data-icone-tema></span>
-          </button>
-
           <a href="#/perfil/alertas" class="btn-icone topo__sino" aria-label="Meus alertas">
             ${icon.sino({ size: 19 })}
             <span class="topo__contador" data-alertas hidden></span>
@@ -84,22 +79,6 @@ export function montarHeader() {
     </header>`);
 
   document.body.prepend(header);
-
-  /* ---- Tema ---- */
-  const pintarTema = () => {
-    const escuro = state.config.tema === 'escuro';
-    qs('[data-icone-tema]', header).innerHTML = escuro
-      ? icon.sol({ size: 19 })
-      : icon.lua({ size: 19 });
-    qs('[data-tema]', header).setAttribute(
-      'aria-label', escuro ? 'Mudar para tema claro' : 'Mudar para tema escuro'
-    );
-  };
-
-  qs('[data-tema]', header).addEventListener('click', () => {
-    aplicarTema(state.config.tema === 'escuro' ? 'claro' : 'escuro');
-    pintarTema();
-  });
 
   /* ---- Busca rapida ---- */
   qs('[data-busca-rapida]', header).addEventListener('click', () => abrirBuscaRapida());
@@ -156,7 +135,6 @@ export function montarHeader() {
     contador.hidden = n === 0;
     qs('[data-avatar]', header).textContent = iniciais(state.perfil.nome);
     qs('[data-perfil-nome]', header).textContent = state.perfil.nome.split(' ')[0];
-    pintarTema();
   }
 
   pintar();

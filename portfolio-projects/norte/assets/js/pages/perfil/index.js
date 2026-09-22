@@ -16,7 +16,7 @@ import {
   todasRegioes, alternarSalvo, limparHistorico, removerDoHistorico,
   removerComparacao, criarAlerta, atualizarAlerta, removerAlerta,
   restaurarAlerta, vagasDoAlerta, marcarAlertasVistos, salvarPerfil,
-  salvarConfig, aplicarTema, resetarTudo, profissoesVisiveis,
+  salvarConfig, resetarTudo, profissoesVisiveis,
   salarioNaRegiao, vagasDaProfissao,
 } from '../../services/store.js';
 import { recomendadasParaMim } from '../../services/busca.js';
@@ -575,22 +575,10 @@ export function paginaPerfil(raiz, params) {
       <section class="painel">
         <div class="painel__topo">
           <div>
-            <p class="painel__titulo">Aparência e avisos</p>
+            <p class="painel__titulo">Avisos</p>
           </div>
         </div>
         <div class="painel__corpo" style="display:grid;gap:var(--sp-5)">
-          <div class="campo">
-            <span class="campo__rotulo">Tema da interface</span>
-            <div class="segmentado" role="group" aria-label="Tema">
-              <button type="button" data-tema="claro" aria-pressed="${c.tema !== 'escuro'}">
-                ${icon.sol({ size: 15 })} Claro
-              </button>
-              <button type="button" data-tema="escuro" aria-pressed="${c.tema === 'escuro'}">
-                ${icon.lua({ size: 15 })} Escuro
-              </button>
-            </div>
-          </div>
-
           <label class="switch">
             <input type="checkbox" name="emailAlertas" ${c.emailAlertas ? 'checked' : ''}>
             <span>Receber alertas de vaga por e-mail</span>
@@ -878,14 +866,6 @@ export function paginaPerfil(raiz, params) {
           fn: () => { restaurarAlerta(res.removido); desenhar(); },
         },
       });
-      return;
-    }
-
-    const tema = e.target.closest('[data-tema]');
-    if (tema) {
-      aplicarTema(tema.dataset.tema);
-      qsa('[data-tema]', raiz).forEach(b =>
-        b.setAttribute('aria-pressed', String(b.dataset.tema === tema.dataset.tema)));
       return;
     }
 

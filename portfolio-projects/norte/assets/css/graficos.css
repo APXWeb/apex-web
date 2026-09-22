@@ -235,8 +235,8 @@
   transform: translate(-50%, calc(-100% - 10px));
   padding: var(--sp-2) var(--sp-3);
   border-radius: var(--r-sm);
-  background: var(--sup-inversa);
-  color: var(--txt-inverso);
+  background: var(--ink-700);
+  color: #F5F7FC;
   border: 1px solid var(--bd-inversa);
   box-shadow: var(--sh-3);
   font-size: var(--fs-xs);
@@ -251,21 +251,14 @@
 .graf__dica--esq { transform: translate(-10px, calc(-100% - 10px)); }
 .graf__dica--dir { transform: translate(calc(-100% + 10px), calc(-100% - 10px)); }
 
-.graf__dica-t { font-weight: 600; color: var(--txt-inverso); }
+.graf__dica-t { font-weight: 600; color: #F5F7FC; }
 .graf__dica-v {
   font-family: var(--fonte-mono);
   font-variant-numeric: tabular-nums;
   color: #fff;
   font-weight: 600;
 }
-.graf__dica-s { color: var(--txt-inverso-suave); font-size: var(--fs-2xs); }
-
-:root[data-tema="escuro"] .graf__dica {
-  background: var(--ink-700);
-  color: #F5F7FC;
-}
-:root[data-tema="escuro"] .graf__dica-t { color: #F5F7FC; }
-:root[data-tema="escuro"] .graf__dica-s { color: var(--ink-300); }
+.graf__dica-s { color: var(--ink-300); font-size: var(--fs-2xs); }
 
 /* ============================================================
    RANKING EM BARRAS (HTML, não SVG)

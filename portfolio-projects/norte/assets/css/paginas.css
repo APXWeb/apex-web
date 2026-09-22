@@ -375,17 +375,10 @@
   inset: -20% -10% auto -10%;
   height: 620px;
   background:
-    radial-gradient(60% 60% at 50% 0%, rgba(6, 124, 142, 0.16), transparent 70%),
-    radial-gradient(40% 50% at 82% 12%, rgba(15, 169, 160, 0.12), transparent 70%),
-    radial-gradient(38% 46% at 16% 18%, rgba(139, 92, 246, 0.12), transparent 70%);
-  pointer-events: none;
-}
-
-:root[data-tema="escuro"] .hero::before {
-  background:
     radial-gradient(60% 60% at 50% 0%, rgba(6, 124, 142, 0.30), transparent 70%),
     radial-gradient(40% 50% at 82% 12%, rgba(15, 169, 160, 0.16), transparent 70%),
     radial-gradient(38% 46% at 16% 18%, rgba(139, 92, 246, 0.18), transparent 70%);
+  pointer-events: none;
 }
 
 .hero__grade { position: relative; display: grid; justify-items: center; text-align: center; }
@@ -1323,8 +1316,7 @@ input[type="range"]:focus-visible::-webkit-slider-thumb { box-shadow: var(--foco
 }
 
 .comp-valor { font-size: var(--fs-md); font-weight: 600; color: var(--txt-forte); font-variant-numeric: tabular-nums; }
-.comp-valor.melhor { color: var(--verde-600); }
-:root[data-tema="escuro"] .comp-valor.melhor { color: #4ADE80; }
+.comp-valor.melhor { color: #4ADE80; }
 .comp-nota { font-size: var(--fs-xs); color: var(--txt-fraco); margin-top: 3px; }
 
 /* ============ PERFIL ============ */

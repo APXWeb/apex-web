@@ -2,7 +2,7 @@
    NORTE — Design tokens
    Duas camadas: primitivas (valores crus, nunca usadas direto
    em componente) e semanticas (o que o componente consome).
-   Trocar de tema mexe so na camada semantica.
+   O NORTE e escuro por definicao: existe uma paleta so.
    ============================================================ */
 
 :root {
@@ -106,11 +106,11 @@
   --lh-solto: 1.7;
 
   /* ---------- PRIMITIVAS: sombra ---------- */
-  --sh-1: 0 1px 2px rgba(13, 16, 32, 0.06), 0 1px 1px rgba(13, 16, 32, 0.04);
-  --sh-2: 0 2px 6px rgba(13, 16, 32, 0.07), 0 1px 2px rgba(13, 16, 32, 0.05);
-  --sh-3: 0 8px 24px rgba(13, 16, 32, 0.09), 0 2px 6px rgba(13, 16, 32, 0.05);
-  --sh-4: 0 18px 48px rgba(13, 16, 32, 0.13), 0 4px 12px rgba(13, 16, 32, 0.06);
-  --sh-5: 0 32px 80px rgba(13, 16, 32, 0.18), 0 8px 20px rgba(13, 16, 32, 0.08);
+  --sh-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --sh-2: 0 2px 8px rgba(0, 0, 0, 0.45);
+  --sh-3: 0 10px 28px rgba(0, 0, 0, 0.5);
+  --sh-4: 0 20px 52px rgba(0, 0, 0, 0.55);
+  --sh-5: 0 34px 84px rgba(0, 0, 0, 0.62);
   --sh-marca: 0 10px 30px rgba(6, 124, 142, 0.30);
 
   /* ---------- PRIMITIVAS: tempo ---------- */
@@ -132,48 +132,48 @@
   --z-toast: 100;
 
   /* ---------- SEMANTICAS: superficie ---------- */
-  --sup-canvas: var(--ink-50);
-  --sup-base: var(--branco);
-  --sup-elevada: var(--branco);
-  --sup-afundada: var(--ink-75);
-  --sup-inversa: var(--ink-900);
-  --sup-inversa-2: var(--ink-800);
-  --sup-marca-fraca: var(--marca-50);
-  --sup-vidro: rgba(255, 255, 255, 0.72);
-  --sup-vidro-escuro: rgba(13, 16, 32, 0.6);
+  --sup-canvas: var(--ink-950);
+  --sup-base: var(--ink-900);
+  --sup-elevada: var(--ink-850);
+  --sup-afundada: var(--ink-950);
+  --sup-inversa: var(--ink-800);
+  --sup-inversa-2: var(--ink-700);
+  --sup-marca-fraca: rgba(6, 124, 142, 0.16);
+  --sup-vidro: rgba(18, 22, 42, 0.72);
+  --sup-vidro-escuro: rgba(7, 9, 21, 0.7);
 
   /* ---------- SEMANTICAS: texto ---------- */
-  --txt-forte: var(--ink-900);
-  --txt-base: var(--ink-700);
-  --txt-suave: var(--ink-500);
+  --txt-forte: #F5F7FC;
+  --txt-base: var(--ink-200);
+  --txt-suave: var(--ink-300);
   --txt-fraco: var(--ink-400);
-  --txt-inverso: var(--branco);
-  --txt-inverso-suave: var(--ink-250);
-  --txt-marca: var(--marca-600);
-  --txt-sobre-marca: var(--branco);
+  --txt-inverso: var(--ink-900);
+  --txt-inverso-suave: var(--ink-600);
+  --txt-marca: var(--marca-300);
+  --txt-sobre-marca: var(--ink-950);
 
   /* ---------- SEMANTICAS: borda ---------- */
-  --bd-sutil: var(--ink-100);
-  --bd-base: var(--ink-150);
-  --bd-forte: var(--ink-200);
-  --bd-marca: var(--marca-300);
+  --bd-sutil: rgba(255, 255, 255, 0.07);
+  --bd-base: rgba(255, 255, 255, 0.11);
+  --bd-forte: rgba(255, 255, 255, 0.18);
+  --bd-marca: var(--marca-500);
   --bd-inversa: rgba(255, 255, 255, 0.12);
 
   /* ---------- SEMANTICAS: marca e estado ---------- */
-  --acento: var(--marca-500);
-  --acento-hover: var(--marca-600);
-  --acento-ativo: var(--marca-700);
-  --acento-fraco: var(--marca-50);
-  --acento-medio: var(--marca-100);
+  --acento: var(--marca-400);
+  --acento-hover: var(--marca-300);
+  --acento-ativo: var(--marca-200);
+  --acento-fraco: rgba(6, 124, 142, 0.18);
+  --acento-medio: rgba(6, 124, 142, 0.30);
 
   --ok: var(--verde-500);
-  --ok-fraco: var(--verde-100);
+  --ok-fraco: rgba(23, 168, 106, 0.16);
   --aviso: var(--ambar-500);
-  --aviso-fraco: var(--ambar-100);
+  --aviso-fraco: rgba(242, 162, 27, 0.16);
   --erro: var(--rosa-500);
-  --erro-fraco: var(--rosa-100);
+  --erro-fraco: rgba(229, 72, 77, 0.16);
   --info: var(--ciano-500);
-  --info-fraco: var(--ciano-100);
+  --info-fraco: rgba(24, 160, 232, 0.16);
 
   /* ---------- SEMANTICAS: dado (graficos) ---------- */
   /* A marca e um petroleo: teal ficaria vizinha demais dela numa
@@ -186,66 +186,13 @@
   --dado-4: var(--verde-500);
   --dado-5: var(--rosa-500);
   --dado-6: var(--ciano-500);
-  --grade-grafico: var(--ink-100);
+  --grade-grafico: rgba(255, 255, 255, 0.08);
 
   /* ---------- SEMANTICAS: layout ---------- */
   --shell-max: 1240px;
   --shell-larga: 1440px;
   --header-h: 68px;
   --barra-mobile-h: 64px;
-  --foco: 0 0 0 3px var(--marca-200), 0 0 0 1px var(--marca-500);
-}
-
-/* ============================================================
-   TEMA ESCURO
-   So a camada semantica muda. Nenhum componente precisa saber.
-   ============================================================ */
-:root[data-tema="escuro"] {
-  --sup-canvas: var(--ink-950);
-  --sup-base: var(--ink-900);
-  --sup-elevada: var(--ink-850);
-  --sup-afundada: var(--ink-950);
-  --sup-inversa: var(--ink-800);
-  --sup-inversa-2: var(--ink-700);
-  --sup-marca-fraca: rgba(6, 124, 142, 0.16);
-  --sup-vidro: rgba(18, 22, 42, 0.72);
-  --sup-vidro-escuro: rgba(7, 9, 21, 0.7);
-
-  --txt-forte: #F5F7FC;
-  --txt-base: var(--ink-200);
-  --txt-suave: var(--ink-300);
-  --txt-fraco: var(--ink-400);
-  --txt-inverso: var(--ink-900);
-  --txt-inverso-suave: var(--ink-600);
-  --txt-marca: var(--marca-300);
-  /* No escuro o acento e claro: rotulo branco em cima dele daria
-     2,7:1. Texto escuro sobre o acento sobe para 7:1. */
-  --txt-sobre-marca: var(--ink-950);
-
-  --bd-sutil: rgba(255, 255, 255, 0.07);
-  --bd-base: rgba(255, 255, 255, 0.11);
-  --bd-forte: rgba(255, 255, 255, 0.18);
-  --bd-marca: var(--marca-500);
-  --bd-inversa: rgba(255, 255, 255, 0.12);
-
-  --acento: var(--marca-400);
-  --acento-hover: var(--marca-300);
-  --acento-ativo: var(--marca-200);
-  --acento-fraco: rgba(6, 124, 142, 0.18);
-  --acento-medio: rgba(6, 124, 142, 0.30);
-
-  /* No escuro os tons claros de estado viram fundos translucidos */
-  --ok-fraco: rgba(23, 168, 106, 0.16);
-  --aviso-fraco: rgba(242, 162, 27, 0.16);
-  --erro-fraco: rgba(229, 72, 77, 0.16);
-  --info-fraco: rgba(24, 160, 232, 0.16);
-
-  --grade-grafico: rgba(255, 255, 255, 0.08);
-
-  --sh-1: 0 1px 2px rgba(0, 0, 0, 0.4);
-  --sh-2: 0 2px 8px rgba(0, 0, 0, 0.45);
-  --sh-3: 0 10px 28px rgba(0, 0, 0, 0.5);
-  --sh-4: 0 20px 52px rgba(0, 0, 0, 0.55);
-  --sh-5: 0 34px 84px rgba(0, 0, 0, 0.62);
   --foco: 0 0 0 3px rgba(6, 124, 142, 0.48), 0 0 0 1px var(--marca-300);
 }
+

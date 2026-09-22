@@ -311,15 +311,11 @@ a.cartao:hover, .cartao--click:hover {
 
 .selo--neutro { background: var(--sup-afundada); color: var(--txt-suave); }
 .selo--marca  { background: var(--acento-fraco); color: var(--txt-marca); }
-.selo--ok     { background: var(--ok-fraco); color: var(--verde-600); }
-.selo--aviso  { background: var(--aviso-fraco); color: var(--ambar-600); }
-.selo--erro   { background: var(--erro-fraco); color: var(--rosa-600); }
+.selo--ok     { background: var(--ok-fraco); color: #4ADE80; }
+.selo--aviso  { background: var(--aviso-fraco); color: #FBBF24; }
+.selo--erro   { background: var(--erro-fraco); color: #F87171; }
 .selo--info   { background: var(--info-fraco); color: var(--ciano-500); }
 .selo--contorno { border: 1px solid var(--bd-base); color: var(--txt-suave); }
-
-:root[data-tema="escuro"] .selo--ok { color: #4ADE80; }
-:root[data-tema="escuro"] .selo--aviso { color: #FBBF24; }
-:root[data-tema="escuro"] .selo--erro { color: #F87171; }
 
 .ponto {
   width: 6px; height: 6px;
@@ -622,7 +618,7 @@ a.cartao:hover, .cartao--click:hover {
   align-items: flex-start;
   gap: var(--sp-3);
   padding: var(--sp-4);
-  background: var(--ink-900);
+  background: var(--ink-700);
   color: var(--branco);
   border-radius: var(--r-sm);
   box-shadow: var(--sh-4);
@@ -633,8 +629,6 @@ a.cartao:hover, .cartao--click:hover {
   transition: transform var(--dur-slow) var(--ease-mola),
               opacity var(--dur-base) var(--ease-out);
 }
-
-:root[data-tema="escuro"] .toast { background: var(--ink-700); }
 
 .toast.aberto { transform: none; opacity: 1; }
 .toast.saindo { transform: translateX(110%); opacity: 0; }
@@ -671,12 +665,8 @@ a.cartao:hover, .cartao--click:hover {
   position: absolute;
   inset: 0;
   transform: translateX(-100%);
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
-  animation: brilho 1.4s infinite;
-}
-
-:root[data-tema="escuro"] .esqueleto::after {
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.07), transparent);
+  animation: brilho 1.4s infinite;
 }
 
 @keyframes brilho { to { transform: translateX(100%); } }
@@ -852,12 +842,9 @@ a.cartao:hover, .cartao--click:hover {
   font-size: var(--fs-xs);
   font-weight: 600;
 }
-.delta--sobe { color: var(--verde-600); }
-.delta--desce { color: var(--rosa-600); }
+.delta--sobe { color: #4ADE80; }
+.delta--desce { color: #F87171; }
 .delta--neutro { color: var(--txt-fraco); }
-
-:root[data-tema="escuro"] .delta--sobe { color: #4ADE80; }
-:root[data-tema="escuro"] .delta--desce { color: #F87171; }
 
 /* ============ RESPONSIVO ============ */
 @media (max-width: 720px) {

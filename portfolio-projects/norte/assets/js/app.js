@@ -6,7 +6,6 @@
 import { rota, iniciarRouter, ir, montarUrl } from './router.js';
 import { montarHeader, montarBarraMobile } from './components/header.js';
 import { montarRodape } from './components/rodape.js';
-import { state, subscribe } from './services/store.js';
 import { observarAnimacoes } from './utils/dom.js';
 
 import { paginaHome } from './pages/home.js';
@@ -20,9 +19,6 @@ import { paginaComparar } from './pages/comparar.js';
 import { paginaPerfil } from './pages/perfil/index.js';
 import { paginaAdmin } from './pages/admin/index.js';
 import { paginaNaoEncontrada } from './pages/naoEncontrada.js';
-
-/* ---------- Tema antes de qualquer pintura ---------- */
-document.documentElement.dataset.tema = state.config.tema || 'claro';
 
 /* ---------- Rotas ---------- */
 rota('/', paginaHome);
@@ -66,11 +62,5 @@ function tituloDaRota(caminho) {
   return document.title.includes('NORTE') ? document.title : 'NORTE';
 }
 
-/* Redesenha o que depende do estado sem trocar de rota */
-subscribe((evento) => {
-  if (evento === 'tema') {
-    document.documentElement.dataset.tema = state.config.tema;
-  }
-});
 
 export { ir, montarUrl };
