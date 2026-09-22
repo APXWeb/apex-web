@@ -1,0 +1,386 @@
+/* ============================================================
+   NORTE — Gráficos
+   SVG próprio, sem biblioteca. O container é responsivo: o SVG
+   ocupa 100% da largura e a altura sai do viewBox, então dá para
+   posicionar a dica em porcentagem sobre o palco.
+   ============================================================ */
+
+.graf {
+  display: grid;
+  gap: var(--sp-3);
+  margin: 0;
+  min-width: 0;
+}
+
+.graf__cabeca {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+}
+
+.graf__titulo {
+  font-family: var(--fonte-display);
+  font-size: var(--fs-base);
+  font-weight: 600;
+  color: var(--txt-forte);
+  line-height: var(--lh-titulo);
+}
+
+.graf__sub {
+  font-size: var(--fs-xs);
+  color: var(--txt-suave);
+  margin-top: 2px;
+}
+
+.graf__palco {
+  position: relative;
+  min-width: 0;
+}
+
+.graf__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* ---------- Eixos e grade ---------- */
+.graf__grade {
+  stroke: var(--grade-grafico);
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+
+.graf__base {
+  stroke: var(--bd-base);
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+
+.graf__rot {
+  fill: var(--txt-fraco);
+  font-family: var(--fonte-texto);
+  font-size: 11px;
+}
+
+.graf__rot--y { text-anchor: end; }
+.graf__rot--x { text-anchor: middle; }
+
+.graf__rot--num {
+  font-family: var(--fonte-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Linha ---------- */
+.graf__area { opacity: 0.16; }
+
+.graf__linha {
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.graf__linha--tracejada { stroke-dasharray: 5 5; stroke-width: 2; opacity: 0.75; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .graf__linha--anim {
+    stroke-dasharray: var(--comp);
+    stroke-dashoffset: var(--comp);
+    animation: graf-traco 1100ms var(--ease-out) forwards;
+  }
+  .graf__area--anim { animation: graf-surge var(--dur-slower) var(--ease-out) backwards; }
+  .graf__ponto-b { animation: graf-surge var(--dur-base) var(--ease-out) backwards; animation-delay: calc(400ms + var(--ordem, 0) * 55ms); }
+}
+
+@keyframes graf-traco { to { stroke-dashoffset: 0; } }
+@keyframes graf-surge { from { opacity: 0; } }
+
+.graf__ponto-b {
+  stroke: var(--sup-base);
+  stroke-width: 2;
+  transition: r var(--dur-fast) var(--ease-out);
+}
+
+/* ---------- Alvos interativos ---------- */
+.graf__alvo {
+  cursor: pointer;
+  outline: none;
+}
+
+.graf__alvo rect.graf__hit,
+.graf__alvo circle.graf__hit {
+  fill: transparent;
+}
+
+.graf__alvo:hover .graf__ponto-b,
+.graf__alvo:focus-visible .graf__ponto-b { r: 6.5; }
+
+.graf__guia {
+  stroke: var(--bd-forte);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+  opacity: 0;
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+
+.graf__alvo:hover .graf__guia,
+.graf__alvo:focus-visible .graf__guia { opacity: 1; }
+
+.graf__alvo:focus-visible .graf__foco {
+  stroke: var(--acento);
+  stroke-width: 2;
+  fill: none;
+  rx: 4;
+}
+
+/* ---------- Barras ---------- */
+.graf__barra {
+  transition: opacity var(--dur-fast) var(--ease-out);
+  transform-box: fill-box;
+  transform-origin: bottom;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .graf__barra--anim {
+    animation: graf-cresce var(--dur-slow) var(--ease-out) backwards;
+    animation-delay: calc(var(--ordem, 0) * 45ms);
+  }
+}
+
+@keyframes graf-cresce { from { transform: scaleY(0); opacity: 0; } }
+
+.graf__alvo:hover .graf__barra,
+.graf__alvo:focus-visible .graf__barra { opacity: 0.82; }
+
+.graf__valor-b {
+  fill: var(--txt-suave);
+  font-family: var(--fonte-mono);
+  font-size: 10.5px;
+  font-variant-numeric: tabular-nums;
+  text-anchor: middle;
+}
+
+/* ---------- Donut ---------- */
+.graf__donut-fatia {
+  transition: opacity var(--dur-fast) var(--ease-out),
+              stroke-width var(--dur-base) var(--ease-mola);
+  stroke-linecap: butt;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .graf__donut-fatia--anim {
+    animation: graf-gira var(--dur-slower) var(--ease-out) backwards;
+    animation-delay: calc(var(--ordem, 0) * 90ms);
+  }
+}
+
+@keyframes graf-gira { from { opacity: 0; stroke-width: 6; } }
+
+.graf__alvo:hover .graf__donut-fatia,
+.graf__alvo:focus-visible .graf__donut-fatia { stroke-width: 26; }
+
+.graf__donut-centro {
+  text-anchor: middle;
+  fill: var(--txt-forte);
+  font-family: var(--fonte-display);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.graf__donut-legenda-c {
+  text-anchor: middle;
+  fill: var(--txt-fraco);
+  font-size: 10px;
+}
+
+/* ---------- Legenda ---------- */
+.graf__legenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2) var(--sp-4);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.graf__legenda-i {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: var(--fs-xs);
+  color: var(--txt-base);
+}
+
+.graf__legenda-c {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.graf__legenda-n {
+  font-family: var(--fonte-mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--txt-suave);
+  margin-left: 2px;
+}
+
+/* ---------- Dica flutuante ---------- */
+.graf__dica {
+  position: absolute;
+  z-index: 4;
+  transform: translate(-50%, calc(-100% - 10px));
+  padding: var(--sp-2) var(--sp-3);
+  border-radius: var(--r-sm);
+  background: var(--sup-inversa);
+  color: var(--txt-inverso);
+  border: 1px solid var(--bd-inversa);
+  box-shadow: var(--sh-3);
+  font-size: var(--fs-xs);
+  line-height: 1.45;
+  white-space: nowrap;
+  pointer-events: none;
+  animation: graf-dica var(--dur-fast) var(--ease-out);
+}
+
+@keyframes graf-dica { from { opacity: 0; transform: translate(-50%, calc(-100% - 4px)); } }
+
+.graf__dica--esq { transform: translate(-10px, calc(-100% - 10px)); }
+.graf__dica--dir { transform: translate(calc(-100% + 10px), calc(-100% - 10px)); }
+
+.graf__dica-t { font-weight: 600; color: var(--txt-inverso); }
+.graf__dica-v {
+  font-family: var(--fonte-mono);
+  font-variant-numeric: tabular-nums;
+  color: #fff;
+  font-weight: 600;
+}
+.graf__dica-s { color: var(--txt-inverso-suave); font-size: var(--fs-2xs); }
+
+:root[data-tema="escuro"] .graf__dica {
+  background: var(--ink-700);
+  color: #F5F7FC;
+}
+:root[data-tema="escuro"] .graf__dica-t { color: #F5F7FC; }
+:root[data-tema="escuro"] .graf__dica-s { color: var(--ink-300); }
+
+/* ============================================================
+   RANKING EM BARRAS (HTML, não SVG)
+   Para listas com rótulo longo: empresa, bairro, área.
+   ============================================================ */
+.ranking {
+  display: grid;
+  gap: var(--sp-3);
+  min-width: 0;
+}
+
+.ranking__i {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px var(--sp-3);
+  align-items: baseline;
+  min-width: 0;
+  text-decoration: none;
+  color: inherit;
+}
+
+a.ranking__i:hover .ranking__r { color: var(--txt-marca); }
+
+.ranking__r {
+  font-size: var(--fs-sm);
+  color: var(--txt-base);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.ranking__v {
+  font-family: var(--fonte-mono);
+  font-size: var(--fs-xs);
+  font-variant-numeric: tabular-nums;
+  color: var(--txt-suave);
+  white-space: nowrap;
+}
+
+.ranking__trilho {
+  grid-column: 1 / -1;
+  height: 8px;
+  border-radius: var(--r-full);
+  background: var(--sup-afundada);
+  overflow: hidden;
+}
+
+.ranking__preenche {
+  display: block;
+  height: 100%;
+  border-radius: var(--r-full);
+  background: var(--dado-1);
+  transform-origin: left;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ranking__preenche {
+    animation: ranking-cresce var(--dur-slow) var(--ease-out) backwards;
+    animation-delay: calc(var(--ordem, 0) * 60ms);
+  }
+}
+
+@keyframes ranking-cresce { from { transform: scaleX(0); } }
+
+/* ---------- Medidor (semicírculo) ---------- */
+.medidor { display: grid; justify-items: center; gap: var(--sp-1); }
+.medidor__svg { display: block; width: 100%; max-width: 200px; height: auto; }
+.medidor__trilho { stroke: var(--sup-afundada); }
+
+.medidor__arco {
+  stroke-linecap: round;
+  transition: stroke-dashoffset var(--dur-slower) var(--ease-out);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .medidor__arco--anim { animation: medidor-gira 900ms var(--ease-out) backwards; }
+}
+
+@keyframes medidor-gira { from { stroke-dashoffset: var(--vazio); } }
+
+.medidor__n {
+  text-anchor: middle;
+  fill: var(--txt-forte);
+  font-family: var(--fonte-display);
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.medidor__l { font-size: var(--fs-xs); color: var(--txt-suave); text-align: center; }
+
+/* ---------- Sparkline ---------- */
+.spark { display: inline-block; vertical-align: middle; line-height: 0; }
+.spark__svg { display: block; overflow: visible; }
+.spark__linha { fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.spark__area { opacity: 0.14; }
+.spark__fim { stroke: var(--sup-base); stroke-width: 1.5; }
+
+/* ---------- Radar (comparação) ---------- */
+.radar__grade { fill: none; stroke: var(--grade-grafico); stroke-width: 1; }
+.radar__eixo { stroke: var(--grade-grafico); stroke-width: 1; }
+.radar__forma { stroke-width: 2; fill-opacity: 0.14; stroke-linejoin: round; }
+.radar__rot { fill: var(--txt-suave); font-size: 10.5px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .radar__forma--anim {
+    animation: graf-surge var(--dur-slower) var(--ease-out) backwards;
+    animation-delay: calc(var(--ordem, 0) * 140ms);
+  }
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 560px) {
+  .graf__rot { font-size: 10px; }
+  .graf__dica { white-space: normal; max-width: 200px; }
+  .graf__valor-b { display: none; }
+}

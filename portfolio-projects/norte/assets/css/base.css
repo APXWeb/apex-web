@@ -1,0 +1,242 @@
+/* ============================================================
+   NORTE — Base: reset, tipografia, utilidades, acessibilidade
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+* { margin: 0; padding: 0; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  font-family: var(--fonte-texto);
+  font-size: var(--fs-base);
+  line-height: var(--lh-normal);
+  color: var(--txt-base);
+  background: var(--sup-canvas);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100dvh;
+  transition: background var(--dur-base) var(--ease-out),
+              color var(--dur-base) var(--ease-out);
+}
+
+/* Um unico lugar decide o que esta escondido. Sem isso, qualquer
+   `display` de componente ganha do atributo [hidden]. */
+[hidden] { display: none !important; }
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--fonte-display);
+  color: var(--txt-forte);
+  line-height: var(--lh-titulo);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+h1 { font-size: var(--fs-3xl); letter-spacing: -0.035em; }
+h2 { font-size: var(--fs-2xl); letter-spacing: -0.03em; }
+h3 { font-size: var(--fs-xl); }
+h4 { font-size: var(--fs-lg); }
+h5 { font-size: var(--fs-md); }
+
+p { text-wrap: pretty; }
+
+a { color: inherit; text-decoration: none; }
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+}
+
+button { cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+
+img, svg, video { display: block; max-width: 100%; }
+svg { flex-shrink: 0; }
+
+ul, ol { list-style: none; }
+
+table { border-collapse: collapse; width: 100%; }
+
+/* Numeros em coluna nao podem dancar ao trocar de valor */
+.tabular, .preco, td.num, th.num, .stat__n, .kpi__n {
+  font-variant-numeric: tabular-nums;
+}
+
+:focus { outline: none; }
+:focus-visible {
+  outline: none;
+  box-shadow: var(--foco);
+  border-radius: var(--r-xs);
+}
+
+::selection { background: var(--marca-200); color: var(--ink-900); }
+
+/* ---------- Estrutura ---------- */
+.shell {
+  width: 100%;
+  max-width: var(--shell-max);
+  margin-inline: auto;
+  padding-inline: var(--sp-6);
+}
+
+.shell--larga { max-width: var(--shell-larga); }
+
+.secao { padding-block: var(--sp-20); }
+.secao--curta { padding-block: var(--sp-12); }
+
+.pilha { display: grid; gap: var(--sp-4); }
+.pilha--sm { gap: var(--sp-2); }
+.pilha--lg { gap: var(--sp-8); }
+
+.linha { display: flex; align-items: center; gap: var(--sp-3); }
+.linha--entre { justify-content: space-between; }
+.linha--quebra { flex-wrap: wrap; }
+
+.grade-auto {
+  display: grid;
+  gap: var(--sp-5);
+  grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
+}
+
+/* ---------- Texto utilitario ---------- */
+.dim { color: var(--txt-suave); }
+.fraco { color: var(--txt-fraco); }
+.forte { color: var(--txt-forte); }
+.mono { font-family: var(--fonte-mono); }
+.centro { text-align: center; }
+
+.sobrancelha {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: var(--fonte-mono);
+  font-size: var(--fs-2xs);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--txt-marca);
+}
+
+.titulo-secao {
+  font-size: var(--fs-2xl);
+  margin-top: var(--sp-3);
+}
+
+.lead {
+  font-size: var(--fs-md);
+  color: var(--txt-suave);
+  max-width: 62ch;
+  line-height: var(--lh-solto);
+}
+
+.cortar {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cortar-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cortar-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* URLs, ids e conteudo do usuario precisam poder quebrar */
+.quebravel { overflow-wrap: anywhere; min-width: 0; }
+
+/* ---------- Acessibilidade ---------- */
+.so-leitor {
+  position: absolute;
+  width: 1px; height: 1px;
+  /* Um <table> ignora width:1px e cresce ate o conteudo; o teto
+     e o clip-path seguram qualquer elemento, inclusive tabela. */
+  max-width: 1px; max-height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.pular-link {
+  position: fixed;
+  top: var(--sp-3);
+  left: var(--sp-3);
+  z-index: var(--z-toast);
+  padding: var(--sp-3) var(--sp-5);
+  background: var(--acento);
+  color: var(--txt-sobre-marca);
+  border-radius: var(--r-sm);
+  font-weight: 600;
+  transform: translateY(-160%);
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+.pular-link:focus-visible { transform: translateY(0); }
+
+/* ---------- Animacao de entrada ---------- */
+[data-anim] {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+[data-anim].vis {
+  opacity: 1;
+  transform: none;
+  transition: opacity var(--dur-slow) var(--ease-out),
+              transform var(--dur-slow) var(--ease-out);
+  transition-delay: calc(var(--atraso, 0) * 60ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-anim] { opacity: 1; transform: none; }
+}
+
+/* ---------- Barra de rolagem ---------- */
+* { scrollbar-width: thin; scrollbar-color: var(--bd-forte) transparent; }
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb {
+  background: var(--bd-forte);
+  border-radius: var(--r-full);
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+*::-webkit-scrollbar-thumb:hover { background-color: var(--ink-300); background-clip: content-box; }
+
+/* Trava a rolagem quando modal/drawer esta aberto */
+body.travado { overflow: hidden; }
+
+/* ---------- Responsivo base ---------- */
+@media (max-width: 900px) {
+  h1 { font-size: var(--fs-2xl); }
+  h2 { font-size: var(--fs-xl); }
+  .secao { padding-block: var(--sp-14); }
+  .shell { padding-inline: var(--sp-4); }
+}
