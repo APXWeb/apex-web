@@ -41,7 +41,7 @@
   border-radius: 9px;
   /* Gradiente indigo->teal: o mesmo par que o hero usa na palavra
      destacada, e o que separa a placa de outras marcas indigo. */
-  background: linear-gradient(135deg, var(--marca-500), var(--teal-500));
+  background: linear-gradient(135deg, var(--marca-600), var(--ciano-500));
   color: #fff;
   box-shadow: var(--sh-marca);
 }
@@ -375,7 +375,7 @@
   inset: -20% -10% auto -10%;
   height: 620px;
   background:
-    radial-gradient(60% 60% at 50% 0%, rgba(79, 61, 245, 0.14), transparent 70%),
+    radial-gradient(60% 60% at 50% 0%, rgba(6, 124, 142, 0.16), transparent 70%),
     radial-gradient(40% 50% at 82% 12%, rgba(15, 169, 160, 0.12), transparent 70%),
     radial-gradient(38% 46% at 16% 18%, rgba(139, 92, 246, 0.12), transparent 70%);
   pointer-events: none;
@@ -383,7 +383,7 @@
 
 :root[data-tema="escuro"] .hero::before {
   background:
-    radial-gradient(60% 60% at 50% 0%, rgba(79, 61, 245, 0.26), transparent 70%),
+    radial-gradient(60% 60% at 50% 0%, rgba(6, 124, 142, 0.30), transparent 70%),
     radial-gradient(40% 50% at 82% 12%, rgba(15, 169, 160, 0.16), transparent 70%),
     radial-gradient(38% 46% at 16% 18%, rgba(139, 92, 246, 0.18), transparent 70%);
 }
@@ -399,7 +399,7 @@
 
 .hero__titulo em {
   font-style: normal;
-  background: linear-gradient(100deg, var(--marca-500), var(--teal-500) 55%, var(--violeta-500));
+  background: linear-gradient(100deg, var(--marca-600), var(--ciano-500) 52%, var(--teal-500));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -586,7 +586,7 @@
   position: absolute;
   inset: auto -10% -60% 40%;
   height: 420px;
-  background: radial-gradient(50% 50% at 50% 50%, rgba(79, 61, 245, 0.4), transparent 70%);
+  background: radial-gradient(50% 50% at 50% 50%, rgba(6, 124, 142, 0.42), transparent 70%);
   pointer-events: none;
 }
 
@@ -955,7 +955,7 @@ input[type="range"]:focus-visible::-webkit-slider-thumb { box-shadow: var(--foco
   position: absolute;
   inset: -50% -30% auto 50%;
   height: 420px;
-  background: radial-gradient(45% 50% at 50% 50%, rgba(79, 61, 245, 0.1), transparent 70%);
+  background: radial-gradient(45% 50% at 50% 50%, rgba(6, 124, 142, 0.12), transparent 70%);
   pointer-events: none;
 }
 

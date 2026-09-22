@@ -549,7 +549,7 @@ export function paginaAdmin(raiz, params) {
       campos: (e) => [
         { nome: 'nome', rotulo: 'Nome', valor: e?.nome || '', obrigatorio: true },
         { nome: 'sigla', rotulo: 'Sigla do logo (2 letras)', valor: e?.sigla || '', maxlength: 2 },
-        { nome: 'cor', rotulo: 'Cor do logo', tipo: 'color', valor: e?.cor || '#4F3DF5' },
+        { nome: 'cor', rotulo: 'Cor do logo', tipo: 'color', valor: e?.cor || '#067C8E' },
         { nome: 'setor', rotulo: 'Setor', valor: e?.setor || '' },
         {
           nome: 'porte', rotulo: 'Porte', tipo: 'select', valor: e?.porte,

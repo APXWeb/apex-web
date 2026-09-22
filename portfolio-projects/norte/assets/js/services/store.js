@@ -413,7 +413,7 @@ export function salvarEmpresa(dados) {
     ...dados,
     id: dados.id || `emp-${Date.now().toString(36)}`,
     sigla: dados.sigla || (dados.nome || 'NA').slice(0, 2).toUpperCase(),
-    cor: dados.cor || '#4F3DF5',
+    cor: dados.cor || '#067C8E',
     areas: dados.areas || [],
     regioes: dados.regioes || [],
     beneficios: dados.beneficios || [],

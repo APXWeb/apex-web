@@ -6,7 +6,7 @@
 
 export const EMPRESAS = [
   {
-    id: 'nexa', nome: 'Nexa Labs', sigla: 'NX', cor: '#4F3DF5', setor: 'Tecnologia',
+    id: 'nexa', nome: 'Nexa Labs', sigla: 'NX', cor: '#5B5BE6', setor: 'Tecnologia',
     porte: 'media', funcionarios: 420, fundacao: 2016, sede: 'sp-sp',
     regioes: ['sp-sp', 'sp-camp', 'remoto'],
     areas: ['tecnologia', 'dados', 'design', 'gestao'],
@@ -193,7 +193,7 @@ export const EMPRESAS = [
     beneficios: ['Vale-refeição', 'Participação nos lucros', 'Plano de saúde', 'Alojamento em unidades rurais', 'Transporte'],
   },
   {
-    id: 'clarion', nome: 'Clarion Consultoria', sigla: 'CC', cor: '#4F3DF5', setor: 'Consultoria',
+    id: 'clarion', nome: 'Clarion Consultoria', sigla: 'CC', cor: '#7C5CD6', setor: 'Consultoria',
     porte: 'media', funcionarios: 580, fundacao: 2010, sede: 'sp-sp',
     regioes: ['sp-sp', 'rj-rj', 'df-bsb', 'remoto'],
     areas: ['gestao', 'financas', 'dados', 'tecnologia'],

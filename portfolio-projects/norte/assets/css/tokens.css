@@ -27,15 +27,15 @@
   --branco:  #FFFFFF;
 
   /* Marca: indigo eletrico */
-  --marca-800: #1E1580;
-  --marca-700: #2C21AD;
-  --marca-600: #3A2CD6;
-  --marca-500: #4F3DF5;
-  --marca-400: #6D5CF8;
-  --marca-300: #948AFB;
-  --marca-200: #C0BAFD;
-  --marca-100: #E3E0FE;
-  --marca-50:  #F1F0FF;
+  --marca-800: #043F49;
+  --marca-700: #045562;
+  --marca-600: #046776;
+  --marca-500: #067C8E;
+  --marca-400: #1DADC3;
+  --marca-300: #54CCDE;
+  --marca-200: #A3E1EB;
+  --marca-100: #D8F4F9;
+  --marca-50:  #EDFAFC;
 
   /* Apoio para dado e estado */
   --teal-600:  #0B857E;
@@ -111,7 +111,7 @@
   --sh-3: 0 8px 24px rgba(13, 16, 32, 0.09), 0 2px 6px rgba(13, 16, 32, 0.05);
   --sh-4: 0 18px 48px rgba(13, 16, 32, 0.13), 0 4px 12px rgba(13, 16, 32, 0.06);
   --sh-5: 0 32px 80px rgba(13, 16, 32, 0.18), 0 8px 20px rgba(13, 16, 32, 0.08);
-  --sh-marca: 0 10px 30px rgba(79, 61, 245, 0.28);
+  --sh-marca: 0 10px 30px rgba(6, 124, 142, 0.30);
 
   /* ---------- PRIMITIVAS: tempo ---------- */
   --dur-instant: 90ms;
@@ -176,12 +176,16 @@
   --info-fraco: var(--ciano-100);
 
   /* ---------- SEMANTICAS: dado (graficos) ---------- */
+  /* A marca e um petroleo: teal ficaria vizinha demais dela numa
+     mesma legenda, entao a serie usa verde no lugar. A ordem
+     alterna familia de cor para duas fatias seguidas nunca se
+     confundirem. */
   --dado-1: var(--marca-500);
-  --dado-2: var(--teal-500);
-  --dado-3: var(--ambar-500);
-  --dado-4: var(--violeta-500);
-  --dado-5: var(--ciano-500);
-  --dado-6: var(--rosa-500);
+  --dado-2: var(--ambar-500);
+  --dado-3: var(--violeta-500);
+  --dado-4: var(--verde-500);
+  --dado-5: var(--rosa-500);
+  --dado-6: var(--ciano-500);
   --grade-grafico: var(--ink-100);
 
   /* ---------- SEMANTICAS: layout ---------- */
@@ -203,7 +207,7 @@
   --sup-afundada: var(--ink-950);
   --sup-inversa: var(--ink-800);
   --sup-inversa-2: var(--ink-700);
-  --sup-marca-fraca: rgba(79, 61, 245, 0.14);
+  --sup-marca-fraca: rgba(6, 124, 142, 0.16);
   --sup-vidro: rgba(18, 22, 42, 0.72);
   --sup-vidro-escuro: rgba(7, 9, 21, 0.7);
 
@@ -214,6 +218,9 @@
   --txt-inverso: var(--ink-900);
   --txt-inverso-suave: var(--ink-600);
   --txt-marca: var(--marca-300);
+  /* No escuro o acento e claro: rotulo branco em cima dele daria
+     2,7:1. Texto escuro sobre o acento sobe para 7:1. */
+  --txt-sobre-marca: var(--ink-950);
 
   --bd-sutil: rgba(255, 255, 255, 0.07);
   --bd-base: rgba(255, 255, 255, 0.11);
@@ -224,8 +231,8 @@
   --acento: var(--marca-400);
   --acento-hover: var(--marca-300);
   --acento-ativo: var(--marca-200);
-  --acento-fraco: rgba(79, 61, 245, 0.16);
-  --acento-medio: rgba(79, 61, 245, 0.26);
+  --acento-fraco: rgba(6, 124, 142, 0.18);
+  --acento-medio: rgba(6, 124, 142, 0.30);
 
   /* No escuro os tons claros de estado viram fundos translucidos */
   --ok-fraco: rgba(23, 168, 106, 0.16);
@@ -240,5 +247,5 @@
   --sh-3: 0 10px 28px rgba(0, 0, 0, 0.5);
   --sh-4: 0 20px 52px rgba(0, 0, 0, 0.55);
   --sh-5: 0 34px 84px rgba(0, 0, 0, 0.62);
-  --foco: 0 0 0 3px rgba(79, 61, 245, 0.45), 0 0 0 1px var(--marca-300);
+  --foco: 0 0 0 3px rgba(6, 124, 142, 0.48), 0 0 0 1px var(--marca-300);
 }

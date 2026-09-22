@@ -5,18 +5,20 @@
    regiao aplica o proprio indice em cima disso.
    ============================================================ */
 
+/* Onze areas, onze cores distintas: elas aparecem juntas na mesma
+   legenda do painel, entao duas nao podem ter o mesmo hex. */
 export const AREAS = [
-  { id: 'tecnologia', nome: 'Tecnologia',  cor: 'var(--dado-1)', icone: 'codigo' },
-  { id: 'dados',      nome: 'Dados',       cor: 'var(--dado-2)', icone: 'grafico' },
-  { id: 'design',     nome: 'Design',      cor: 'var(--dado-4)', icone: 'pincel' },
-  { id: 'gestao',     nome: 'Gestão',      cor: 'var(--dado-5)', icone: 'alvo' },
-  { id: 'saude',      nome: 'Saúde',       cor: 'var(--dado-6)', icone: 'coracao' },
-  { id: 'engenharia', nome: 'Engenharia',  cor: 'var(--dado-3)', icone: 'regua' },
-  { id: 'juridico',   nome: 'Jurídico',    cor: 'var(--ink-500)', icone: 'balanca' },
-  { id: 'financas',   nome: 'Finanças',    cor: 'var(--teal-600)', icone: 'moeda' },
-  { id: 'marketing',  nome: 'Marketing',   cor: 'var(--violeta-500)', icone: 'megafone' },
-  { id: 'educacao',   nome: 'Educação',    cor: 'var(--ciano-500)', icone: 'livro' },
-  { id: 'oficios',    nome: 'Técnico',     cor: 'var(--ambar-600)', icone: 'chave' },
+  { id: 'tecnologia', nome: 'Tecnologia',  cor: 'var(--marca-500)',   icone: 'codigo' },
+  { id: 'dados',      nome: 'Dados',       cor: 'var(--ciano-500)',   icone: 'grafico' },
+  { id: 'design',     nome: 'Design',      cor: 'var(--violeta-500)', icone: 'pincel' },
+  { id: 'gestao',     nome: 'Gestão',      cor: 'var(--rosa-500)',    icone: 'alvo' },
+  { id: 'saude',      nome: 'Saúde',       cor: 'var(--verde-500)',   icone: 'coracao' },
+  { id: 'engenharia', nome: 'Engenharia',  cor: 'var(--ambar-600)',   icone: 'regua' },
+  { id: 'juridico',   nome: 'Jurídico',    cor: 'var(--ink-500)',     icone: 'balanca' },
+  { id: 'financas',   nome: 'Finanças',    cor: 'var(--teal-500)',    icone: 'moeda' },
+  { id: 'marketing',  nome: 'Marketing',   cor: 'var(--rosa-600)',    icone: 'megafone' },
+  { id: 'educacao',   nome: 'Educação',    cor: 'var(--marca-700)',   icone: 'livro' },
+  { id: 'oficios',    nome: 'Técnico',     cor: 'var(--ambar-500)',   icone: 'chave' },
 ];
 
 export const AREA_POR_ID = Object.fromEntries(AREAS.map(a => [a.id, a]));
