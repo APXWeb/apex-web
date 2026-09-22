@@ -79,8 +79,8 @@
     feeNetworkEl.textContent = brl(asset.network);
 
     if (!amount) {
-      qtyEl.textContent = '—';
-      totalEl.textContent = '—';
+      qtyEl.textContent = '···';
+      totalEl.textContent = '···';
       return;
     }
 

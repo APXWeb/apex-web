@@ -509,7 +509,7 @@
         if (planos.length > 1) {
           return {
             contexto: `${planos.length} pedidos no mesmo texto`,
-            fala: 'Peguei mais de um pedido aí — juntei tudo num plano só.',
+            fala: 'Peguei mais de um pedido aí, juntei tudo num plano só.',
             ops: planos.flatMap((pl) => pl.ops),
           };
         }
@@ -525,7 +525,7 @@
     switch (id) {
       case 'ajuda':
         return {
-          fala: 'Eu leio o seu workspace e executo mudanças de verdade — criar, alterar, concluir, mover, apagar (inclusive em lote) e responder perguntas sobre o que você tem. Alguns exemplos:',
+          fala: 'Eu leio o seu workspace e executo mudanças de verdade: criar, alterar, concluir, mover, apagar (inclusive em lote) e responder perguntas sobre o que você tem. Alguns exemplos:',
           dicas: [
             'Organize minha semana', 'Adiciona tarefa revisar contrato pra sexta',
             'Reunião com o time quarta 15h', 'Tira tudo que eu tenho pra fazer',
@@ -564,7 +564,7 @@
 
       case 'identidade':
         return {
-          fala: `Sou a ${config.nome}, a assistente que você criou aqui na NOVA. Não sou uma pessoa: sou um programa que roda dentro do seu navegador, lê o seu workspace e executa o que você pedir — sempre mostrando o plano antes e deixando você desfazer.`,
+          fala: `Sou a ${config.nome}, a assistente que você criou aqui na NOVA. Não sou uma pessoa: sou um programa que roda dentro do seu navegador, lê o seu workspace e executa o que você pedir, sempre mostrando o plano antes e deixando você desfazer.`,
           dicas: ['O que você faz?', 'O que eu tenho pra hoje?'],
         };
 
@@ -572,10 +572,10 @@
         const atr = atrasadas().length;
         const ab = abertas().length;
         if (!ab) {
-          return { fala: 'Entendo. Pelo que vejo aqui, nada está registrado ainda — às vezes tirar tudo da cabeça e colocar numa lista já alivia. Me conta o que está pesando que eu organizo.' };
+          return { fala: 'Entendo. Pelo que vejo aqui, nada está registrado ainda, às vezes tirar tudo da cabeça e colocar numa lista já alivia. Me conta o que está pesando que eu organizo.' };
         }
         return {
-          fala: `Entendo — dá para respirar. Você tem ${plural(ab, 'tarefa')} aberta(s)${atr ? `, sendo ${atr} em atraso` : ''}. Se quiser, eu reorganizo a semana, tiro o atraso do caminho e reservo um bloco de foco pra você.`,
+          fala: `Entendo, dá para respirar. Você tem ${plural(ab, 'tarefa')} aberta(s)${atr ? `, sendo ${atr} em atraso` : ''}. Se quiser, eu reorganizo a semana, tiro o atraso do caminho e reservo um bloco de foco pra você.`,
           dicas: ['Organize minha semana', 'O que devo fazer primeiro?'],
         };
       }
@@ -583,7 +583,7 @@
       case 'sugestao': {
         const ab = abertas();
         if (!ab.length) {
-          return { fala: 'Não há nada aberto no momento — você está em dia. Se quiser adiantar algo, me diz o que tem em mente.' };
+          return { fala: 'Não há nada aberto no momento, você está em dia. Se quiser adiantar algo, me diz o que tem em mente.' };
         }
         const peso = (t) => (fromIso(t.data) < h ? 100 : 0) + ({ alta: 30, media: 15, baixa: 5 }[t.prioridade] || 0) - Math.round((fromIso(t.data) - h) / 86400000);
         const ordenadas = [...ab].sort((a2, b2) => peso(b2) - peso(a2));
@@ -594,7 +594,7 @@
         const seguintes = ordenadas.slice(1, 3).map((t) => `“${t.titulo}”`).join(' e ');
         return {
           contexto: `${plural(ab.length, 'tarefa')} aberta(s)`,
-          fala: `Eu começaria por “${top.titulo}” — ${motivo}.${seguintes ? ` Depois dela viriam ${seguintes}.` : ''}`,
+          fala: `Eu começaria por “${top.titulo}”: ${motivo}.${seguintes ? ` Depois dela viriam ${seguintes}.` : ''}`,
           dicas: [`Concluí ${top.titulo.toLowerCase()}`, 'Organize minha semana'],
         };
       }
@@ -622,7 +622,7 @@
 
       case 'devendo': {
         const atr = atrasadas();
-        if (!atr.length) return { fala: 'Nada em atraso — você está em dia.' };
+        if (!atr.length) return { fala: 'Nada em atraso, você está em dia.' };
         return {
           contexto: `${plural(atr.length, 'tarefa')} em atraso`,
           fala: `Sim: ${atr.map((t) => `“${t.titulo}” (${rotuloAtraso(t.data)})`).join(', ')}.`,
@@ -661,7 +661,7 @@
         });
 
         if (!total) {
-          return { fala: area ? `Não há nada em ${area} para remover.` : 'Seu workspace já está vazio — não há nada para remover.' };
+          return { fala: area ? `Não há nada em ${area} para remover.` : 'Seu workspace já está vazio, não há nada para remover.' };
         }
         return {
           contexto: `${plural(total, 'item')} serão apagados`,
@@ -726,7 +726,7 @@
         const area = detectarArea(texto) || 'tarefas';
         const listas = {
           tarefas: () => filtrarPorTempo(abertas(), texto).map((t) => `${t.titulo} (${rotuloData(t.data)})`),
-          agenda: () => filtrarPorTempo(state.agenda, texto).map((e) => `${e.titulo} — ${rotuloData(e.data)} ${e.hora}`),
+          agenda: () => filtrarPorTempo(state.agenda, texto).map((e) => `${e.titulo} · ${rotuloData(e.data)} ${e.hora}`),
           metas: () => state.metas.map((m) => `${m.titulo} (${Math.round((m.atual / m.alvo) * 100)}%)`),
           habitos: () => state.habitos.map((hb) => `${hb.titulo} (${hb.dias.filter(Boolean).length}/7)`),
           financas: () => state.financas.map((f) => `${f.titulo}: ${money(f.valor)}`),
@@ -1095,7 +1095,7 @@
         return {
           fala: confianca > 0
             ? 'Entendi mais ou menos, mas prefiro confirmar a ter certeza errada. Pode reformular?'
-            : 'Não peguei esse pedido. Eu mexo em tarefas, agenda, objetivos, hábitos e finanças — crio, altero, concluo, movo, apago e também respondo perguntas. Alguns exemplos:',
+            : 'Não peguei esse pedido. Eu mexo em tarefas, agenda, objetivos, hábitos e finanças: crio, altero, concluo, movo, apago e também respondo perguntas. Alguns exemplos:',
           dicas: ['O que eu tenho pra hoje?', 'Tira tudo que eu tenho pra fazer', 'Adiciona tarefa ligar pro contador amanhã', 'Quanto gastei esse mês?', 'Ajuda'],
         };
     }
@@ -1298,7 +1298,7 @@
 
       recusar.addEventListener('click', () => {
         box.classList.add('is-refused');
-        $('.plan-head', box).textContent = 'Plano recusado — nada foi alterado';
+        $('.plan-head', box).textContent = 'Plano recusado, nada foi alterado';
         acoes.innerHTML = '';
       });
     }
@@ -1600,7 +1600,7 @@
     renderApp();
     if (!elChat('app').children.length) {
       if (vazioTotal()) {
-        bolha('ai', `Oi${config.dono ? ', ' + esc(config.dono) : ''}! Sou a <strong>${esc(config.nome)}</strong>. Seu workspace está limpo — nada aqui além do que você criar. Me diz o que você precisa organizar e eu começo a montar.`, 'app');
+        bolha('ai', `Oi${config.dono ? ', ' + esc(config.dono) : ''}! Sou a <strong>${esc(config.nome)}</strong>. Seu workspace está limpo, nada aqui além do que você criar. Me diz o que você precisa organizar e eu começo a montar.`, 'app');
         renderDicas(['Adiciona tarefa revisar contrato pra sexta', 'Reunião com o time quarta 15h', 'Meta: guardar 6000', 'Todo dia beber 2L de água'], 'app');
       } else {
         bolha('ai', `Oi${config.dono ? ', ' + esc(config.dono) : ''}! Sou a <strong>${esc(config.nome)}</strong>. Já li o seu workspace: <strong>${abertas().length} tarefas abertas</strong>, ${atrasadas().length} atrasada(s) e ${state.agenda.length} compromissos.`, 'app');
@@ -1673,7 +1673,7 @@
   function linhaHtml(i, h) {
     return `
       <div class="linha linha-${i.area} ${i.feito ? 'is-done' : ''}">
-        <span class="linha-hora">${i.hora || '—'}</span>
+        <span class="linha-hora">${i.hora || '···'}</span>
         <div class="linha-main">
           <span class="linha-titulo">${esc(i.titulo)}</span>
           <span class="linha-meta">
@@ -1987,7 +1987,7 @@
 
     $('#item-title').textContent = it ? `Editar ${cfg.titulo}` : `Novo ${cfg.titulo}`;
     $('#item-sub').textContent = it
-      ? 'Altere o que quiser e salve — a IA não precisa participar.'
+      ? 'Altere o que quiser e salve, a IA não precisa participar.'
       : 'Preencha à mão. Você também pode pedir isso para a sua IA, se preferir.';
     $('#item-erro').hidden = true;
 
@@ -2201,7 +2201,7 @@
       elChat('app').innerHTML = '';
       fechar('#modal-signup');
       entrarApp('visao');
-      toast(`Conta criada — ${config.nome} está pronta`);
+      toast(`Conta criada: ${config.nome} está pronta`);
     });
 
     // login
@@ -2354,8 +2354,8 @@
       save(); renderTudo();
       elChat('landing').innerHTML = '';
       bolha('ai', temConta
-        ? `Workspace limpo. Sou a ${esc(config.nome)} — me diz o que você quer montar.`
-        : `Demonstração reiniciada. Sou a ${esc(config.nome)} — me diz o que precisa.`);
+        ? `Workspace limpo. Sou a ${esc(config.nome)}, me diz o que você quer montar.`
+        : `Demonstração reiniciada. Sou a ${esc(config.nome)}, me diz o que precisa.`);
       $('#btn-undo').disabled = false;
       toast(temConta ? 'Workspace limpo' : 'Demo reiniciada');
     });
@@ -2398,7 +2398,7 @@
       config.modo = document.querySelector('input[name="cfg-mode"]:checked').value;
       saveCfg(); aplicarConfig(); fechar('#modal-config');
       elChat('landing').innerHTML = '';
-      bolha('ai', `Prontinho${config.dono ? ', ' + esc(config.dono) : ''}. Sou a <strong>${esc(config.nome)}</strong>, no modo ${config.modo === 'autonomo' ? 'autônomo' : 'copiloto'}. Já estou de olho em ${abertas().length} tarefas abertas — manda o primeiro comando.`);
+      bolha('ai', `Prontinho${config.dono ? ', ' + esc(config.dono) : ''}. Sou a <strong>${esc(config.nome)}</strong>, no modo ${config.modo === 'autonomo' ? 'autônomo' : 'copiloto'}. Já estou de olho em ${abertas().length} tarefas abertas, manda o primeiro comando.`);
       renderDicas(['Organize minha semana', 'O que eu tenho pra hoje?']);
       toast(`${config.nome} está pronta`);
       $('#workspace').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });

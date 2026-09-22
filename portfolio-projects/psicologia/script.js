@@ -316,7 +316,7 @@
     if (!state.time) return showError('Escolha um horário.', timeWrap);
     if (name.length < 2) return showError('Informe seu nome.', nameEl);
     if (phoneDigits.length < 10) return showError('Informe um WhatsApp válido, com DDD.', phoneEl);
-    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return showError('Confira o e-mail — ou deixe em branco.', emailEl);
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return showError('Confira o e-mail, ou deixe em branco.', emailEl);
 
     const data = {
       type: state.type, mode: state.mode, date: state.date, time: state.time,
@@ -387,7 +387,7 @@
       `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '')}`,
       `DTSTART:${utc(0)}`,
       `DTEND:${utc(type.minutes)}`,
-      `SUMMARY:${esc(`${type.name} — Ânima Psicologia`)}`,
+      `SUMMARY:${esc(`${type.name} · Ânima Psicologia`)}`,
       `DESCRIPTION:${esc(description)}`,
       `LOCATION:${esc(location)}`,
       'BEGIN:VALARM', 'TRIGGER:-PT1H', 'ACTION:DISPLAY', 'DESCRIPTION:Lembrete da sessão', 'END:VALARM',
@@ -405,7 +405,7 @@
     a.click();
     a.remove();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
-    showToast('Arquivo de agenda baixado — abra para adicionar ao seu calendário.');
+    showToast('Arquivo de agenda baixado, abra para adicionar ao seu calendário.');
   }
 
   $('#bookings-list').addEventListener('click', (e) => {
@@ -555,7 +555,7 @@
     core.style.transitionDuration = '0.8s';
     core.style.transform = 'scale(0.55)';
     phaseEl.textContent = 'Pronto?';
-    countEl.textContent = '—';
+    countEl.textContent = '···';
     cyclesEl.textContent = '0';
     setToggle('start');
   }
