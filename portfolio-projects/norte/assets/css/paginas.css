@@ -39,7 +39,9 @@
   place-items: center;
   width: 32px; height: 32px;
   border-radius: 9px;
-  background: var(--acento);
+  /* Gradiente indigo->teal: o mesmo par que o hero usa na palavra
+     destacada, e o que separa a placa de outras marcas indigo. */
+  background: linear-gradient(135deg, var(--marca-500), var(--teal-500));
   color: #fff;
   box-shadow: var(--sh-marca);
 }

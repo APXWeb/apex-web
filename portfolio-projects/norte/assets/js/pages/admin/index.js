@@ -85,7 +85,7 @@ export function paginaAdmin(raiz, params) {
 
       <aside class="adm__lado" data-lado>
         <div class="adm__marca">
-          <span class="adm__marca-ic">${icon.bussola({ size: 19 })}</span>
+          <span class="adm__marca-ic">${icon.norte({ size: 19 })}</span>
           <span>
             NORTE
             <span class="adm__marca-sub">Painel</span>

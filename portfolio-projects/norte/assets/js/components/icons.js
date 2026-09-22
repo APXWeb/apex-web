@@ -13,7 +13,15 @@ const svg = (corpo, { size = 18, fill = 'none', strokeWidth = 1.7, cls = '' } = 
 export const icon = {
   // Marca
   bussola: (o) => svg('<circle cx="12" cy="12" r="9"/><path d="m15.4 8.6-2.1 5-5 2.1 2.1-5z"/>', o),
-  norte: (o) => svg('<path d="m12 2 3.1 7.4 7.4 3.1-7.4 3.1L12 23l-3.1-7.4L1.5 12.5l7.4-3.1z"/>', o),
+  // A marca nao passa pelo helper: precisa de dois tons de
+  // preenchimento para a agulha ter norte cheio e sul apagado.
+  norte: ({ size = 18 } = {}) => `
+    <svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}"
+         viewBox="0 0 24 24" fill="currentColor" stroke="none"
+         aria-hidden="true" focusable="false">
+      <path d="M12 2.6 16 13 8 13Z"/>
+      <path d="M12 20.6 16 13 8 13Z" opacity=".42"/>
+    </svg>`,
 
   // Navegacao
   lupa: (o) => svg('<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>', o),
