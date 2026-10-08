@@ -1302,6 +1302,39 @@ h2 {
   margin-bottom: 18px;
 }
 
+/* Cartao que ocupa a linha inteira (fecha a grade quando o numero de projetos e impar) */
+.portfolio-card--wide {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  align-items: center;
+  overflow: hidden;
+}
+
+.portfolio-card--wide .portfolio-thumb {
+  aspect-ratio: auto;
+  align-self: stretch;
+  min-height: 360px;
+}
+
+.portfolio-card--wide .portfolio-thumb img {
+  object-position: left top;
+}
+
+.portfolio-card--wide .portfolio-info {
+  padding: 32px;
+}
+
+@media (max-width: 860px) {
+  .portfolio-card--wide {
+    display: block;
+  }
+  .portfolio-card--wide .portfolio-thumb {
+    aspect-ratio: 4 / 3;
+    min-height: 0;
+  }
+}
+
 /* Nota sobre o contexto de um projeto especifico (ex.: empresa encerrada) */
 .portfolio-note {
   color: var(--text-muted);
