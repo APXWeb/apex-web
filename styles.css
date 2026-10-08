@@ -1037,42 +1037,7 @@ h2 {
   }
 }
 
-/* Especialidades */
-.especialidades {
-  background: var(--bg-alt);
-}
-
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  margin-top: 56px;
-}
-
-.spec-card {
-  position: relative;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 36px 28px;
-  overflow: hidden;
-  transition: border-color 0.3s ease, transform 0.3s var(--ease), box-shadow 0.3s ease;
-  --mx: 50%;
-  --my: 50%;
-}
-
-.spec-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(280px circle at var(--mx) var(--my), rgba(0, 98, 255, 0.18), transparent 60%);
-  opacity: 0;
-  transition: opacity 0.35s ease;
-  pointer-events: none;
-}
-
 /* Borda que acende no ponto mais proximo do cursor */
-.spec-card::after,
 .portfolio-card::after {
   content: "";
   position: absolute;
@@ -1090,117 +1055,8 @@ h2 {
   z-index: 2;
 }
 
-.spec-card:hover::after,
 .portfolio-card:hover::after {
   opacity: 1;
-}
-
-.spec-card:hover {
-  border-color: rgba(0, 98, 255, 0.35);
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px -20px rgba(0, 98, 255, 0.4);
-}
-
-.spec-card:hover::before {
-  opacity: 1;
-}
-
-.spec-icon {
-  width: 48px;
-  height: 48px;
-  color: var(--blue-bright);
-  margin-bottom: 20px;
-  transition: transform 0.35s var(--ease);
-}
-
-.spec-card:hover .spec-icon {
-  transform: scale(1.15) rotate(-6deg);
-}
-
-.spec-icon svg {
-  width: 100%;
-  height: 100%;
-}
-
-.spec-card h3 {
-  font-size: 1.15rem;
-  margin-bottom: 12px;
-}
-
-.spec-card p {
-  color: var(--text-muted);
-  font-size: 0.95rem;
-}
-
-/* Como Funcionamos */
-.como-funciona {
-  background: var(--bg);
-}
-
-.steps-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  margin-top: 56px;
-}
-
-.step {
-  position: relative;
-  border-top: 2px solid var(--border);
-  padding-top: 20px;
-  transition: transform 0.3s var(--ease);
-}
-
-.step::before {
-  content: "";
-  position: absolute;
-  top: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--blue-bright);
-  transition: width 0.4s var(--ease);
-}
-
-.step:hover {
-  transform: translateY(-4px);
-}
-
-.step:hover::before,
-.step.is-drawn::before {
-  width: 100%;
-}
-
-.step.is-drawn::before {
-  transition-duration: 0.8s;
-}
-
-.step-number {
-  display: block;
-  color: var(--blue-bright);
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.4rem;
-  margin-bottom: 12px;
-  transition: transform 0.45s var(--ease), text-shadow 0.45s ease;
-}
-
-.step.is-drawn .step-number {
-  text-shadow: 0 0 22px rgba(0, 98, 255, 0.55);
-}
-
-.step:hover .step-number {
-  transform: translateX(4px) scale(1.08);
-}
-
-.step h3 {
-  font-size: 1.05rem;
-  margin-bottom: 10px;
-}
-
-.step p {
-  color: var(--text-muted);
-  font-size: 0.9rem;
 }
 
 /* Trabalhos */
@@ -1711,12 +1567,6 @@ h2 {
 
 /* Responsive */
 @media (max-width: 900px) {
-  .cards-grid {
-    grid-template-columns: 1fr;
-  }
-  .steps-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
   .portfolio-grid {
     grid-template-columns: 1fr;
   }
@@ -1754,9 +1604,6 @@ h2 {
   }
   .hero {
     padding: 64px 0 70px;
-  }
-  .steps-grid {
-    grid-template-columns: 1fr;
   }
   .back-to-top {
     right: 18px;

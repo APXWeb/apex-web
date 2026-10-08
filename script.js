@@ -136,7 +136,7 @@
 
   // Spotlight + borda que acende acompanhando o cursor nos cards
   if (!prefersReducedMotion) {
-    document.querySelectorAll('.spec-card, .portfolio-card').forEach(card => {
+    document.querySelectorAll('.portfolio-card').forEach(card => {
       card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
         card.style.setProperty('--mx', `${((e.clientX - rect.left) / rect.width) * 100}%`);
@@ -271,19 +271,5 @@
     requestAnimationFrame(() => {
       requestAnimationFrame(() => heroTitle.classList.add('words-in'));
     });
-  }
-
-  // Passos do "Como Funcionamos" se desenhando conforme entram na tela
-  const steps = Array.from(document.querySelectorAll('.step'));
-  if (steps.length && 'IntersectionObserver' in window && !prefersReducedMotion) {
-    const stepObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        const index = steps.indexOf(entry.target);
-        setTimeout(() => entry.target.classList.add('is-drawn'), index * 170);
-        stepObserver.unobserve(entry.target);
-      });
-    }, { threshold: 0.35 });
-    steps.forEach(step => stepObserver.observe(step));
   }
 })();
