@@ -1,0 +1,176 @@
+{
+ "total": 54.010374999999996,
+ "scenes": [
+  {
+   "id": "copa",
+   "lines": [
+    "Imagina você em Copacabana, numa noite de lua cheia...",
+    "e do nada... puf!",
+    "A Lua sumiu. Parece de boa, né?",
+    "Só que não."
+   ],
+   "start": 0.4,
+   "phrases": [
+    {
+     "text": "Imagina você em Copacabana, numa noite de lua cheia...",
+     "start": 0.4,
+     "dur": 3.006
+    },
+    {
+     "text": "e do nada... puf!",
+     "start": 3.626,
+     "dur": 1.041
+    },
+    {
+     "text": "A Lua sumiu. Parece de boa, né?",
+     "start": 4.887,
+     "dur": 1.729
+    },
+    {
+     "text": "Só que não.",
+     "start": 6.837,
+     "dur": 0.699
+    }
+   ],
+   "end": 7.986166666666667
+  },
+  {
+   "id": "cristo",
+   "lines": [
+    "Primeiro: a noite vira um breu.",
+    "Lá no Cristo Redentor, o céu ia ficar preto total. Só sobrava a luz da cidade."
+   ],
+   "start": 7.986166666666667,
+   "phrases": [
+    {
+     "text": "Primeiro: a noite vira um breu.",
+     "start": 7.986,
+     "dur": 1.626
+    },
+    {
+     "text": "Lá no Cristo Redentor, o céu ia ficar preto total. Só sobrava a luz da cidade.",
+     "start": 9.833,
+     "dur": 4.459
+    }
+   ],
+   "end": 14.741125
+  },
+  {
+   "id": "pororoca",
+   "lines": [
+    "No Amazonas, a pororoca, aquela onda gigante que sobe o rio...",
+    "ia praticamente acabar. Quem empurra ela é a maré, e quem manda na maré é a Lua.",
+    "Surfista de pororoca? Desempregado."
+   ],
+   "start": 14.741125,
+   "phrases": [
+    {
+     "text": "No Amazonas, a pororoca, aquela onda gigante que sobe o rio...",
+     "start": 14.741,
+     "dur": 3.166
+    },
+    {
+     "text": "ia praticamente acabar. Quem empurra ela é a maré, e quem manda na maré é a Lua.",
+     "start": 18.127,
+     "dur": 4.121
+    },
+    {
+     "text": "Surfista de pororoca? Desempregado.",
+     "start": 22.468,
+     "dur": 2.059
+    }
+   ],
+   "end": 24.977291666666662
+  },
+  {
+   "id": "samba",
+   "lines": [
+    "E o Carnaval? A data dele depende da Páscoa, que depende da Lua.",
+    "Sem Lua... ninguém ia saber quando é o Carnaval!"
+   ],
+   "start": 24.977291666666662,
+   "phrases": [
+    {
+     "text": "E o Carnaval? A data dele depende da Páscoa, que depende da Lua.",
+     "start": 24.977,
+     "dur": 3.257
+    },
+    {
+     "text": "Sem Lua... ninguém ia saber quando é o Carnaval!",
+     "start": 28.455,
+     "dur": 2.409
+    }
+   ],
+   "end": 31.31341666666666
+  },
+  {
+   "id": "paris",
+   "lines": [
+    "Ah, e o lobisomem lá de Paris?",
+    "Também desempregado."
+   ],
+   "start": 31.31341666666666,
+   "phrases": [
+    {
+     "text": "Ah, e o lobisomem lá de Paris?",
+     "start": 31.313,
+     "dur": 1.667
+    },
+    {
+     "text": "Também desempregado.",
+     "start": 33.2,
+     "dur": 1.361
+    }
+   ],
+   "end": 35.01070833333333
+  },
+  {
+   "id": "clima",
+   "lines": [
+    "Mas o pior vem devagar. Sem a Lua segurando o eixo, a Terra ia começar a balançar, ao longo de milhões de anos.",
+    "Ia ter calor de derreter...",
+    "e até neve em Copacabana!"
+   ],
+   "start": 35.01070833333333,
+   "phrases": [
+    {
+     "text": "Mas o pior vem devagar. Sem a Lua segurando o eixo, a Terra ia começar a balançar, ao longo de milhões de anos.",
+     "start": 35.011,
+     "dur": 5.934
+    },
+    {
+     "text": "Ia ter calor de derreter...",
+     "start": 41.164,
+     "dur": 1.639
+    },
+    {
+     "text": "e até neve em Copacabana!",
+     "start": 43.023,
+     "dur": 1.688
+    }
+   ],
+   "end": 45.16129166666666
+  },
+  {
+   "id": "final",
+   "lines": [
+    "Relaxa! Na vida real, a Lua só se afasta três vírgula oito centímetros por ano.",
+    "Comenta aí: onde você queria estar quando a Lua sumisse?"
+   ],
+   "start": 45.16129166666666,
+   "phrases": [
+    {
+     "text": "Relaxa! Na vida real, a Lua só se afasta três vírgula oito centímetros por ano.",
+     "start": 45.161,
+     "dur": 4.202
+    },
+    {
+     "text": "Comenta aí: onde você queria estar quando a Lua sumisse?",
+     "start": 49.583,
+     "dur": 2.777
+    }
+   ],
+   "end": 54.010374999999996
+  }
+ ]
+}
