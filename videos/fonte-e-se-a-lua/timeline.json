@@ -1,0 +1,194 @@
+{
+ "total": 49.76537499999999,
+ "scenes": [
+  {
+   "id": "hook",
+   "lines": [
+    "E se a Lua sumisse... agora?",
+    "Tipo... puf!",
+    "Sumiu. Parece de boa, né?",
+    "Só que não."
+   ],
+   "start": 0.4,
+   "phrases": [
+    {
+     "text": "E se a Lua sumisse... agora?",
+     "start": 0.4,
+     "dur": 1.556
+    },
+    {
+     "text": "Tipo... puf!",
+     "start": 2.176,
+     "dur": 0.841
+    },
+    {
+     "text": "Sumiu. Parece de boa, né?",
+     "start": 3.237,
+     "dur": 1.48
+    },
+    {
+     "text": "Só que não.",
+     "start": 4.937,
+     "dur": 0.701
+    }
+   ],
+   "end": 6.087666666666666
+  },
+  {
+   "id": "noite",
+   "lines": [
+    "Primeiro: a noite vira um breu total.",
+    "Sabe aquela Lua cheia que clareia a rua?",
+    "Acabou. Agora é só lanterna do celular."
+   ],
+   "start": 6.087666666666666,
+   "phrases": [
+    {
+     "text": "Primeiro: a noite vira um breu total.",
+     "start": 6.088,
+     "dur": 1.996
+    },
+    {
+     "text": "Sabe aquela Lua cheia que clareia a rua?",
+     "start": 8.303,
+     "dur": 2.154
+    },
+    {
+     "text": "Acabou. Agora é só lanterna do celular.",
+     "start": 10.677,
+     "dur": 2.115
+    }
+   ],
+   "end": 13.24175
+  },
+  {
+   "id": "praia",
+   "lines": [
+    "Na praia, as marés iam ficar três vezes menores.",
+    "E o pescador, que se guia pela maré pra saber a hora do peixe...",
+    "ia ficar perdidinho."
+   ],
+   "start": 13.24175,
+   "phrases": [
+    {
+     "text": "Na praia, as marés iam ficar três vezes menores.",
+     "start": 13.242,
+     "dur": 2.903
+    },
+    {
+     "text": "E o pescador, que se guia pela maré pra saber a hora do peixe...",
+     "start": 16.365,
+     "dur": 2.966
+    },
+    {
+     "text": "ia ficar perdidinho.",
+     "start": 19.551,
+     "dur": 1.415
+    }
+   ],
+   "end": 21.416125
+  },
+  {
+   "id": "calendario",
+   "lines": [
+    "E o calendário? O mês foi inventado olhando pra Lua.",
+    "Páscoa, Ramadã, Ano Novo Chinês...",
+    "tudo ia ter que mudar."
+   ],
+   "start": 21.416125,
+   "phrases": [
+    {
+     "text": "E o calendário? O mês foi inventado olhando pra Lua.",
+     "start": 21.416,
+     "dur": 2.828
+    },
+    {
+     "text": "Páscoa, Ramadã, Ano Novo Chinês...",
+     "start": 24.464,
+     "dur": 1.977
+    },
+    {
+     "text": "tudo ia ter que mudar.",
+     "start": 26.661,
+     "dur": 1.31
+    }
+   ],
+   "end": 28.42170833333333
+  },
+  {
+   "id": "lobisomem",
+   "lines": [
+    "Ah, e o lobisomem?",
+    "Desempregado."
+   ],
+   "start": 28.42170833333333,
+   "phrases": [
+    {
+     "text": "Ah, e o lobisomem?",
+     "start": 28.422,
+     "dur": 1.1
+    },
+    {
+     "text": "Desempregado.",
+     "start": 29.742,
+     "dur": 0.97
+    }
+   ],
+   "end": 31.16229166666666
+  },
+  {
+   "id": "clima",
+   "lines": [
+    "Mas o pior vem devagar.",
+    "A Lua segura o eixo da Terra. Sem ela, em milhões de anos, a Terra ia começar a balançar.",
+    "Verão de derreter...",
+    "e inverno de congelar."
+   ],
+   "start": 31.16229166666666,
+   "phrases": [
+    {
+     "text": "Mas o pior vem devagar.",
+     "start": 31.162,
+     "dur": 1.551
+    },
+    {
+     "text": "A Lua segura o eixo da Terra. Sem ela, em milhões de anos, a Terra ia começar a balançar.",
+     "start": 32.934,
+     "dur": 4.953
+    },
+    {
+     "text": "Verão de derreter...",
+     "start": 38.107,
+     "dur": 1.3
+    },
+    {
+     "text": "e inverno de congelar.",
+     "start": 39.627,
+     "dur": 1.491
+    }
+   ],
+   "end": 41.56812499999999
+  },
+  {
+   "id": "final",
+   "lines": [
+    "Relaxa! Na vida real, a Lua só se afasta três vírgula oito centímetros por ano.",
+    "Comenta aí: qual dessas te pegou mais?"
+   ],
+   "start": 41.56812499999999,
+   "phrases": [
+    {
+     "text": "Relaxa! Na vida real, a Lua só se afasta três vírgula oito centímetros por ano.",
+     "start": 41.568,
+     "dur": 4.352
+    },
+    {
+     "text": "Comenta aí: qual dessas te pegou mais?",
+     "start": 46.14,
+     "dur": 1.976
+    }
+   ],
+   "end": 49.76537499999999
+  }
+ ]
+}

@@ -1,0 +1,30 @@
+[
+ {"id":"hook","lines":[
+   "E se a Lua sumisse... agora?",
+   "Tipo... puf!",
+   "Sumiu. Parece de boa, né?",
+   "Só que não."]},
+ {"id":"noite","lines":[
+   "Primeiro: a noite vira um breu total.",
+   "Sabe aquela Lua cheia que clareia a rua?",
+   "Acabou. Agora é só lanterna do celular."]},
+ {"id":"praia","lines":[
+   "Na praia, as marés iam ficar três vezes menores.",
+   "E o pescador, que se guia pela maré pra saber a hora do peixe...",
+   "ia ficar perdidinho."]},
+ {"id":"calendario","lines":[
+   "E o calendário? O mês foi inventado olhando pra Lua.",
+   "Páscoa, Ramadã, Ano Novo Chinês...",
+   "tudo ia ter que mudar."]},
+ {"id":"lobisomem","lines":[
+   "Ah, e o lobisomem?",
+   "Desempregado."]},
+ {"id":"clima","lines":[
+   "Mas o pior vem devagar.",
+   "A Lua segura o eixo da Terra. Sem ela, em milhões de anos, a Terra ia começar a balançar.",
+   "Verão de derreter...",
+   "e inverno de congelar."]},
+ {"id":"final","lines":[
+   "Relaxa! Na vida real, a Lua só se afasta três vírgula oito centímetros por ano.",
+   "Comenta aí: qual dessas te pegou mais?"]}
+]
