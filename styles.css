@@ -241,7 +241,7 @@ h2 {
 }
 
 .nav-logo img {
-  height: 34px;
+  height: 46px;
   width: auto;
   transition: transform 0.3s ease;
 }
@@ -628,14 +628,14 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 206px;
+  height: 250px;
   margin: 8px 0 0;
 }
 
 .hero-logo {
   position: relative;
   z-index: 2;
-  width: 430px;
+  width: 250px;
   max-width: 86%;
   margin: 0;
   filter: drop-shadow(0 18px 40px rgba(0, 98, 255, 0.35));
@@ -1013,10 +1013,10 @@ h2 {
     margin-top: -24px;
   }
   .logo-stage {
-    height: 210px;
+    height: 230px;
   }
   .hero-logo {
-    width: 340px;
+    width: 230px;
   }
   .ring-1 { width: 260px; height: 260px; }
   .ring-2 { width: 372px; height: 372px; }
@@ -1025,11 +1025,11 @@ h2 {
 
 @media (max-width: 640px) {
   .logo-stage {
-    height: 170px;
+    height: 190px;
     margin-top: 8px;
   }
   .hero-logo {
-    width: 270px;
+    width: 190px;
   }
   .ring-1 { width: 210px; height: 210px; }
   .ring-2 { width: 300px; height: 300px; }
@@ -1487,7 +1487,7 @@ h2 {
 }
 
 .footer-logo {
-  height: 28px;
+  height: 40px;
   width: auto;
 }
 
